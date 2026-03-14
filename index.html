@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esperando contra toda esperanza | J.J. Vargas</title>
+    <meta name="description"
+        content="Un estudio para los que han visto el milagro pero siguen esperando. El nuevo libro de J.J. Vargas.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================
+           VARIABLES Y CONFIGURACIÓN GLOBAL
+           ========================================= */
+        :root {
+            /* Colores de marca MindHub Dynamics */
+            --primary: #1E2330;
+            /* Azul Marino Oscuro */
+            --secondary: #3B71D0;
+            /* Azul Rey */
+            --bg-color: #F8F9FA;
+            /* Gris muy claro */
+            --text-color: #2D3748;
+            /* Gris Pizarra oscuro */
+            --accent: #EBE9DF;
+            /* Crema/Hueso */
+
+            /* Fuentes */
+            --font-headings: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Medidas y Sombras */
+            --container-width: 1200px;
+            --radius: 12px;
+            --shadow-sm: 0 4px 6px rgba(74, 44, 44, 0.08);
+            --shadow-md: 0 10px 20px rgba(74, 44, 44, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-headings);
+            line-height: 1.2;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Utilidades texto */
+        .text-center {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--text-color);
+            box-shadow: 0 4px 15px rgba(59, 113, 208, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 113, 208, 0.5);
+            background-color: #5c8aea;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: var(--primary);
+        }
+
+        /* =========================================
+           NAVEGACIÓN (STICKY)
+           ========================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar.scrolled .logo,
+        .navbar.scrolled .nav-menu li a {
+            color: var(--primary);
+        }
+
+        .navbar.scrolled .hamburger {
+            color: var(--primary);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-family: var(--font-headings);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-menu li a {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu li a:hover {
+            color: var(--secondary);
+        }
+
+        /* Botón de comprar en nav */
+        .nav-comprar {
+            background-color: var(--secondary);
+            color: var(--text-color) !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+        }
+
+        .nav-comprar:hover {
+            background-color: #5c8aea;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           SECCIÓN 1: HERO
+           ========================================= */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            /* Gradiente ejecutivo oscuro */
+            background: linear-gradient(180deg, rgba(30,35,48, 0.85) 0%, rgba(59,113,208, 0.8) 100%),
+                url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2670') no-repeat center center/cover;
+            color: #fff;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            color: #fff;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-text h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p.impacto {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .book-mockup {
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            transform: perspective(800px) rotateY(-15deg);
+            transition: var(--transition);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* =========================================
+           SECCIÓN 2: EL PROBLEMA
+           ========================================= */
+        .problema {
+            padding: 100px 0;
+            background-color: var(--bg-color);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-bottom-color: var(--secondary);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card-text {
+            font-size: 1.15rem;
+            font-family: var(--font-headings);
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+
+        /* =========================================
+           SECCIÓN 3: QUÉ OFRECE
+           ========================================= */
+        .ofrece {
+            padding: 100px 0;
+            background-color: var(--primary);
+        }
+
+        .ofrece h2.section-title,
+        .ofrece p.section-subtitle {
+            color: #fff;
+        }
+
+        .ofrece-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .ofrece-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05); /* Executive Dark Mode Card */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .ofrece-card:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: #fff;
+        }
+
+        .ofrece-card:hover h3,
+        .ofrece-card:hover p {
+            color: #fff;
+            /* Cambio de color en hover */
+        }
+
+        .ofrece-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .ofrece-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+            color: #fff;
+        }
+
+        .ofrece-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        /* =========================================
+           SECCIÓN 4: CAPÍTULO GRATUITO
+           ========================================= */
+        .capitulo-gratis {
+            padding: 100px 0;
+            /* 5% opacidad de color primario sobre blanco: #1E2330 en Hex al 5%, usamos rgba */
+            background-color: rgba(30, 35, 48, 0.05);
+        }
+
+        .lead-magnet-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: #fff;
+            padding: 50px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .lm-image {
+            flex: 0 0 30%;
+        }
+
+        .lm-image img {
+            border-radius: 4px;
+            box-shadow: var(--shadow-sm);
+            width: 100%;
+        }
+
+        .lm-content {
+            flex: 1;
+        }
+
+        .form-container {
+            margin-top: 30px;
+            /* Contenedor principal donde se embeberá el IFRAME/HTML de Mailchimp o Google Forms */
+            min-height: 200px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            padding: 30px;
+            position: relative;
+        }
+
+        /* Estilos demostrativos para el formulario en caso de usar HTML directo */
+        .demo-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .demo-form input {
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        .demo-form input:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+
+        .demo-form button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .legal-text {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* =========================================
+           SECCIÓN 5: COMUNIDAD
+           ========================================= */
+        .comunidad {
+            padding: 100px 0;
+            background-color: var(--accent);
+            color: #fff;
+            text-align: center;
+        }
+
+        .comunidad h2 {
+            color: #fff;
+        }
+
+        .comunidad .section-subtitle {
+            color: #fff;
+            opacity: 0.9;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            /* Verde original WhatsApp */
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 18px 40px;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            border-radius: 50px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ea952;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Video Responsive */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 30px auto;
+            border: 2px solid rgba(59, 113, 208, 0.3);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* =========================================
+           SECCIÓN 7: COMPRA
+           ========================================= */
+        .compra {
+            padding: 120px 0;
+            background-color: var(--primary);
+            color: #fff;
+            text-align: center;
+        }
+
+        .compra h2 {
+            color: #fff;
+            font-size: 3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .oferta-caja {
+            background: #fff;
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .oferta-caja::before {
+            content: "OFERTA DE LANZAMIENTO";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: var(--text-color);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .precio {
+            font-family: var(--font-headings);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0 10px;
+            line-height: 1;
+        }
+
+        .precio-sub {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .bonos {
+            margin: 30px 0;
+            text-align: left;
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .bonos ul {
+            list-style: none;
+        }
+
+        .bonos li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .bonos li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: -2px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .btn-compra-gigante {
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 2rem;
+            color: #999;
+        }
+
+        .trust-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        .footer {
+            background-color: #1a1010;
+            color: #fff;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-headings);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .credits {
+            color: var(--secondary);
+        }
+
+        /* =========================================
+           ANIMACIONES (Observer)
+           ========================================= */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* =========================================
+           BOTÓN FLOTANTE WHATSAPP
+           ========================================= */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1ebd5a;
+            transform: scale(1.1);
+            color: #FFF;
+            box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
+        /* =========================================
+           RESPONSIVE (Medias Queries)
+           ========================================= */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .ofrece-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .lead-magnet-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--bg-color);
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: var(--transition);
+                padding: 40px;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li a {
+                color: var(--primary);
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .precio {
+                font-size: 3rem;
+            }
+
+            .oferta-caja {
+                padding: 40px 20px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* =========================================
+           CHATBOT "EL ACOMPAÑANTE"
+           ========================================= */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            width: 350px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1001;
+            transform: translateY(150%);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .chat-widget.active {
+            transform: translateY(0);
+        }
+
+        .chat-header {
+            background-color: var(--primary);
+            /* #4A2C2C */
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-headings);
+            font-size: 1.2rem;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-avatar {
+            width: 35px;
+            height: 35px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        .chat-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .chat-body {
+            height: 350px;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .chat-msg {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-msg.bot {
+            background-color: #fff;
+            color: var(--text-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+
+        .chat-msg.user {
+            background-color: var(--secondary);
+            /* #3B71D0 */
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+            box-shadow: 0 2px 5px rgba(59, 113, 208, 0.3);
+        }
+
+        .chat-input-area {
+            border-top: 1px solid #eee;
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+            background: #fff;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+        }
+
+        .chat-input-area input:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .chat-quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0 20px 10px 20px;
+            background: #fff;
+        }
+
+        .chat-quick-btn {
+            background-color: #f0f0f0;
+            color: var(--text-color);
+            border: 1px solid #ddd;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-quick-btn:hover {
+            background-color: var(--secondary);
+            color: #fff;
+            border-color: var(--secondary);
+        }
+
+        .chat-btn-send {
+            background-color: var(--secondary);
+            color: #fff;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .chat-btn-send:hover {
+            transform: scale(1.05);
+            background-color: #5c8aea;
+        }
+
+        .chat-btn-send svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            margin-right: -3px;
+            /* visual center */
+        }
+
+        .chat-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary);
+            color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(59, 113, 208, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.8rem;
+            z-index: 1000;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .chat-trigger img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-trigger:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .chat-widget {
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+                transform: translateY(100%);
+            }
+
+            .chat-body {
+                height: calc(100vh - 135px);
+            }
+
+            .chat-trigger {
+                right: 30px;
+                bottom: 100px;
+                /* Above whatsapp */
+            }
+        }
+        /* --- SPA SECTIONS --- */
+        .spa-section {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .spa-section.active {
+            display: block;
+        }
+
+        #sec-thanks {
+            background-color: #0d1117;
+            padding: 80px 20px;
+        }
+
+        #sec-login {
+            background: linear-gradient(135deg, #1e1b2e, #12111d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Nav admin link */
+        .nav-admin {
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sec-landing" class="spa-section active">
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">ESPERANDO</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#problema">El Libro</a></li>
+                <li><a href="#ofrece">Qué ofrece</a></li>
+                <li><a href="#capitulo-gratis">Capítulo Gratis</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+                <li><a href="#compra" class="nav-comprar">Comprar</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">☰</div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN 1: HERO -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text fade-in-section">
+                <h1>Esperando contra toda esperanza</h1>
+                <h2>El silencio de Dios no es ausencia de Dios</h2>
+                <p class="impacto">Un estudio para los que han visto el milagro pero siguen esperando.</p>
+                <div class="hero-actions">
+                    <a href="#compra" class="btn btn-primary">COMPRAR LIBRO DIGITAL POR $120</a>
+                    <a href="#capitulo-gratis" class="btn btn-outline">QUIERO EL CAPÍTULO GRATIS</a>
+                </div>
+            </div>
+            <div class="hero-image fade-in-section">
+                <!-- Se usa un color sólido o gradiente como mockup del libro si la img falla por ahora -->
+                <img src="PORTADA.jpg" alt="Portada Esperando contra toda Esperanza" class="book-mockup">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: PROBLEMA -->
+    <section id="problema" class="problema">
+        <div class="container text-center">
+            <h2 class="section-title fade-in-section">¿Te has sentido así?</h2>
+
+            <div class="cards-grid">
+                <div class="card fade-in-section">
+                    <div class="card-icon">🥀</div>
+                    <p class="card-text">"Has hecho todo bien... y aún así perdiste."</p>
+                </div>
+                <div class="card fade-in-section">
+                    <div class="card-icon">⏳</div>
+                    <p class="card-text">"Ves milagros en otros... pero el tuyo no llega."</p>
+                </div>
+                <div class="card fade-in-section">
+                    <div class="card-icon">🔇</div>
+                    <p class="card-text">"El silencio de Dios duele más que la crisis."</p>
+                </div>
+                <div class="card fade-in-section">
+                    <div class="card-icon">🚪</div>
+                    <p class="card-text">"Temes morir en la puerta, como el oficial."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: QUÉ OFRECE -->
+    <section id="ofrece" class="ofrece">
+        <div class="container text-center">
+            <h2 class="section-title fade-in-section">Esto no es solo un libro. Es un compañero de asedio.</h2>
+            <p class="section-subtitle fade-in-section">Diseñado para ser tu guía y consuelo mientras esperas el
+                cumplimiento de la promesa.</p>
+
+            <div class="ofrece-grid">
+                <div class="ofrece-card fade-in-section">
+                    <div class="ofrece-icon">💬</div>
+                    <h3>Reflexiones Profundas</h3>
+                    <p>Capítulos que nombran lo que sientes y te dan permiso para estar donde estás.</p>
+                </div>
+                <div class="ofrece-card fade-in-section">
+                    <div class="ofrece-icon">✍️</div>
+                    <h3>Ejercicios Prácticos</h3>
+                    <p>Hojas de trabajo, diagnósticos y herramientas para sobrevivir la espera diaria.</p>
+                </div>
+                <div class="ofrece-card fade-in-section">
+                    <div class="ofrece-icon">🤝</div>
+                    <h3>Acompañamiento Real</h3>
+                    <p>Acceso al onboarding profundo para caminar juntos tu proceso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PODCAST -->
+    <section id="podcast" style="padding: 80px 0; background-color: var(--bg-color);">
+        <div class="container text-center">
+            <h2 class="section-title fade-in-section">Conoce las historias detrás del asedio</h2>
+            <p class="section-subtitle fade-in-section" style="margin-bottom: 20px;">Sumérgete en conversaciones reales
+                en nuestro podcast oficial.</p>
+
+            <div class="video-wrapper fade-in-section" style="max-width: 800px;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/HWxSyOkqRjQ"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: CAPÍTULO GRATIS -->
+    <section id="capitulo-gratis" class="capitulo-gratis">
+        <div class="container">
+            <div class="lead-magnet-container fade-in-section">
+                <div class="lm-image">
+                    <img src="PORTADA.jpg" alt="Capítulo Gratis">
+                </div>
+                <div class="lm-content">
+                    <h2 class="section-title" style="margin-bottom: 0.5rem;">PRUEBA ANTES DE COMPRAR</h2>
+                    <p class="section-subtitle" style="margin-left: 0; color: var(--primary);">Descarga gratis el primer
+                        capítulo y experimenta el libro antes de decidirte.</p>
+
+                    <!-- ÁREA DEL FORMULARIO -->
+                    <div class="form-container">
+                        <!-- INSTRUCCIÓN DE INTEGRACIÓN -->
+                        <!-- [INSERTO AQUÍ EL CÓDIGO EMBED DE MI HERRAMIENTA DE EMAIL MARKETING COMO MAILCHIMP O GOOGLE FORMS] -->
+
+                        <!-- Formulario de demostración UI (Reemplazar en prod) -->
+                        <form class="demo-form"
+                            onsubmit="event.preventDefault(); window.open('https://drive.google.com/file/d/1sPrXF-PuQFuepd_RmapO8ooiIsEgDF_6/view?usp=sharing', '_blank');">
+                            <input type="text" placeholder="Tu Nombre" required>
+                            <input type="email" placeholder="Tu Correo Electrónico" required>
+                            <button type="submit" class="btn btn-primary">DESCARGAR CAPÍTULO GRATIS</button>
+                        </form>
+                    </div>
+                    <p class="legal-text">No compartimos tus datos. Puedes desuscribirte cuando quieras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: COMUNIDAD -->
+    <section id="comunidad" class="comunidad">
+        <div class="container text-center fade-in-section">
+            <h2 class="section-title" style="color:#fff;">No estás solo. La Resistencia del Asedio te espera.</h2>
+            <p class="section-subtitle" style="margin: 0 auto 40px; max-width: 700px; color:#fff;">Únete a nuestra
+                comunidad de WhatsApp y camina con otros que también están esperando.</p>
+            <a href="https://wa.me/524427942009?text=Hola,%20quisiera%20unirme%20a%20la%20comunidad%20de%20Esperando%20contra%20toda%20esperanza"
+                target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">UNIRME A LA COMUNIDAD MUNDIAL</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: COMPRA -->
+    <section id="compra" class="compra">
+        <div class="container">
+            <h2 class="section-title fade-in-section" style="color:#fff;">CRUZA LA PUERTA. EL BANQUETE ESTÁ SERVIDO.
+            </h2>
+
+            <div class="oferta-caja fade-in-section">
+                <div class="precio">$120 MXN</div>
+                <div class="precio-sub">Edición Exclusivamente Digital (PDF + ePub)</div>
+
+                <div class="bonos">
+                    <ul>
+                        <li>Libro Digital "Esperando contra toda esperanza"</li>
+                        <li><strong>INCLUYE ACCESO AL ONBOARDING EN VIVO</strong></li>
+                        <li>Entrega inmediata por correo electrónico</li>
+                        <li>Lectura en cualquier dispositivo (Laptop, Tablet, Celular)</li>
+                    </ul>
+                </div>
+
+                <a href="https://buy.stripe.com/8x2fZjcsu5L4ejNgYp77O01"
+                    class="btn btn-primary btn-compra-gigante">COMPRAR AHORA (OFERTA LIMITADA ESPECIAL)</a>
+
+                <div class="trust-badges">
+                    <!-- Text entities substituting icons for demo -->
+                    <span title="Visa">💳</span>
+                    <span title="Mastercard">🟡</span>
+                    <span title="PayPal">🅿️</span>
+                    <span title="Oxxo">🏪</span>
+                </div>
+                <p class="trust-text">Compra 100% segura. Recibirás un correo con los detalles para la entrega y tus
+                    bonos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="footer-logo">ESPERANDO</a>
+            <ul class="footer-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#capitulo-gratis">Capítulo Gratis</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+                <li><a href="#">Aviso de Privacidad</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="sistema/login.html">Acceso al Sistema</a></li>
+            </ul>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 J.J. Vargas. Todos los derechos reservados.</p>
+                <p>Diseño por <span class="credits">MindHubDynamics</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Funcionalidad del Menú Móvil (Hamburger)
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-menu li a');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                if (navMenu.classList.contains('active')) {
+                    hamburger.innerHTML = '✕';
+                } else {
+                    hamburger.innerHTML = '☰';
+                }
+            });
+
+            // Cerrar menú móvil al hacer click en un enlace
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.innerHTML = '☰';
+                });
+            });
+
+            // 2. Navbar Sticky & Cambio de Color en Scroll
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Trigger scroll check on load just in case
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            }
+
+            // 3. Smooth Scroll Effect via CSS scroll-behavior 
+            // is already acting. But we can offset scroll specifically if needed.
+
+            // 4. Animaciones "Fade-In" al hacer scroll usando IntersectionObserver
+            const faders = document.querySelectorAll('.fade-in-section');
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            // 5. Integración Básica de Stripe Checkout (Removida por Payment Links)
+            // El botón de compra ahora redirige directamente al enlace de pago de Stripe.
+        });
+    </script>
+
+    <!-- CHATBOT WIDGET: El Acompañante -->
+    <div class="chat-trigger" id="chatTrigger" title="Habla con El Acompañante">
+        <img src="iconobot.jpg" alt="Abrir Chatbot">
+    </div>
+
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar"><img src="iconobot.jpg" alt="El Acompañante"></div>
+                <div>El Acompañante</div>
+            </div>
+            <button class="chat-close" id="chatClose">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">
+                Hola, gracias por estar aquí. Sé que si estás viendo esta página es porque hay algo en tu vida que sigue
+                en "pausa", aunque parezca que has hecho todo bien. ¿Qué es eso que sientes que llevas esperando por
+                mucho tiempo?
+            </div>
+        </div>
+        <div class="chat-quick-replies" id="chatQuickReplies">
+            <button class="chat-quick-btn">¿Cuál es el precio?</button>
+            <button class="chat-quick-btn">¿Es formato impreso?</button>
+            <button class="chat-quick-btn">Quiero el capítulo gratis</button>
+            <button class="chat-quick-btn">¿Qué incluye el onboarding?</button>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." autocomplete="off">
+            <button class="chat-btn-send" id="chatSendBtn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ... Logic for Bot ...
+            const chatTrigger = document.getElementById('chatTrigger');
+            const chatWidget = document.getElementById('chatWidget');
+            const chatClose = document.getElementById('chatClose');
+            const chatBody = document.getElementById('chatBody');
+            const chatInput = document.getElementById('chatInput');
+            const chatSendBtn = document.getElementById('chatSendBtn');
+            const quickReplies = document.querySelectorAll('.chat-quick-btn');
+
+            // Mostrar el chat flotante a los 10 segundos
+            setTimeout(() => {
+                if (!chatWidget.classList.contains('active')) {
+                    chatWidget.classList.add('active');
+                }
+            }, 10000);
+
+            chatTrigger.addEventListener('click', () => {
+                chatWidget.classList.add('active');
+                chatInput.focus();
+            });
+
+            chatClose.addEventListener('click', () => {
+                chatWidget.classList.remove('active');
+            });
+
+            function appendMessage(text, sender) {
+                const msgDiv = document.createElement('div');
+                msgDiv.classList.add('chat-msg', sender);
+                // Si contiene enlace (Drive), hacerlo clickeable
+                const formattedText = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color:inherit; text-decoration:underline; font-weight:bold;">$1</a>');
+                msgDiv.innerHTML = formattedText;
+                chatBody.appendChild(msgDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+
+            function processBotResponse(userMsg) {
+                const msg = userMsg.toLowerCase();
+                let response = "Entiendo perfectamente lo que me dices. Este libro fue escrito exactamente para acompañar procesos que parecen no tener respuesta. El formato digital cuesta solo $120 MXN e incluye acceso a un onboarding especial. ¿Sientes que recibir herramientas prácticas te ayudaría a sobrellevar mejor este momento de espera?";
+
+                if (msg.includes('prueba') || msg.includes('test')) {
+                    response = "Hola, gracias por la prueba. ¡El bot está activo y listo para conectar con tu audiencia! ¿Deseas hacer alguna otra prueba?";
+                } else if (msg.includes('costo') || msg.includes('precio') || msg.includes('cuesta') || msg.includes('comprar')) {
+                    response = "El costo de no saber lidiar con la espera prolongada suele ser muy alto emocionalmente. Por eso hicimos esta guía súper accesible: El libro digital cuesta solo **$120 MXN**, y te incluye acceso directo a un onboarding en vivo con el autor. <br><br>👉 <a href='https://buy.stripe.com/8x2fZjcsu5L4ejNgYp77O01' target='_blank'>Haz clic aquí para COMPRAR AHORA (OFERTA LIMITADA ESPECIAL)</a>";
+                } else if (msg.includes('fisico') || msg.includes('impreso') || msg.includes('envio')) {
+                    response = "Creamos esta edición en **formato 100% digital** para que no tuvieras que esperar un minuto más por el envío; se entrega en tu correo apenas terminas el pago para que lo leas hoy mismo desde tu celular o computadora. Cuando atraviesas un desierto, ¿no crees que lo que más necesitas es empezar a ver respuestas inmediatas?";
+                } else if (msg.includes('desempleado') || msg.includes('crisis') || msg.includes('triste') || msg.includes('no sé') || msg.includes('esperando') || msg.includes('para mí') || msg.includes('depresión')) {
+                    response = "Lamento de corazón que estés pasando por eso, es un peso enorme. J.J., el autor, escribió las primeras líneas de este libro justamente tras años de crisis personales muy duras. No promete una salida mágica a tu problema laboral o emocional, pero sí promete darte una brújula para que no te rompas mientras esperas la salida. ¿Qué es lo que más te agota de tu situación actual?";
+                } else if (msg.includes('capitulo') || msg.includes('gratis') || msg.includes('muestra') || msg.includes('leer primero') || msg.includes('descargar')) {
+                    response = "Claro que sí, me parece una excelente idea que lo pruebes primero. Aquí tienes el enlace al Capítulo 1 ('Bienvenido al desierto que no pediste'): \nhttps://drive.google.com/file/d/1sPrXF-PuQFuepd_RmapO8ooiIsEgDF_6/view?usp=sharing \nMe encantaría saber, una vez que lo leas: ¿cuál de todas las situaciones que se describen ahí sientes que es idéntica a la tuya?";
+                } else if (msg.includes('onboarding') || msg.includes('conferencia') || msg.includes('acceso') || msg.includes('incluye')) {
+                    response = "El 'Acceso al Onboarding' es una sesión en vivo directa con J.J. Vargas diseñada para guiarte en cómo aprovechar el libro al máximo, cómo avanzar por los ejercicios prácticos y cómo no rendirte a mitad del camino. ¿Sientes que tener ese acompañamiento directo te ayudaría a salir del estancamiento?";
+                } else if (msg.includes('ateo') || msg.includes('no creo') || msg.includes('dios') || msg.includes('religioso') || msg.includes('rezar')) {
+                    response = "Es una barrera muy común, y quiero ser súper transparente: El libro tiene raíces en historias de fe, pero no es un libro que intente 'evangelizarte' o darte respuestas religiosas de cajón. Habla del dolor humano, de la frustración cuando 'has hecho todo bien y aún así pierdes'. Si te enviara el formato gratuito para que notes el tono, ¿te animarías a hojearlo un par de minutos?";
+                } else if (msg.includes('hola') || msg.includes('buenos dias') || msg.includes('buenas tardes')) {
+                    response = "¡Hola! Qué gusto que llegaste hasta acá. Quienes buscan este libro suelen ser personas que no se rinden, pero que ya están muy cansadas de esperar su milagro. Cuéntame, ¿hay algo en particular que te llamó la atención del libro para tu situación actual?";
+                } else if (msg.includes('bien') || msg.includes('gracias') || msg.includes('ok') || msg.includes('si') || msg.includes('no') || msg.includes('tal vez')) {
+                    response = "Perfecto. Sé que dar el paso puede generar dudas. Si tuvieras que calificar del 1 al 10 qué tan cansado(a) estás de 'esperar contra toda esperanza' en tu vida, ¿en qué número estarías ahora mismo?";
+                }
+
+                // Simulate slight delay
+                setTimeout(() => {
+                    appendMessage(response, 'bot');
+                }, 800 + Math.random() * 800);
+            }
+
+            function handleSend(textOverride = null) {
+                const text = textOverride !== null ? textOverride : chatInput.value.trim();
+                if (text) {
+                    appendMessage(text, 'user');
+                    chatInput.value = '';
+                    processBotResponse(text);
+                    // Ocultar botones rapidos despues de la primera interaccion para limpiar pantalla
+                    const repliesContainer = document.getElementById('chatQuickReplies');
+                    if (repliesContainer) {
+                        repliesContainer.style.display = 'none';
+                    }
+                }
+            }
+
+            chatSendBtn.addEventListener('click', () => handleSend());
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSend();
+            });
+
+            quickReplies.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    handleSend(btn.innerText);
+                });
+            });
+        });
+    </script>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/524427942009?text=Hola,%20me%20interesa%20el%20libro%20Esperando%20contra%20toda%20esperanza"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Contáctanos por WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.662-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05     </div><!-- Fin #sec-landing -->
+
+    <!-- SECCIÓN: GRACIAS (ÉXITO) -->
+    <div id="sec-thanks" class="spa-section">
+        <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 50px; backdrop-filter: blur(10px);">
+                <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
+                <h1 style="color: #fff; margin-bottom: 20px;">¡Gracias, tu lugar está asegurado!</h1>
+                <p style="color: #8b949e; font-size: 1.1rem; margin-bottom: 30px;">
+                    Tu pago se procesó correctamente. Puedes descargar tu copia inmediatamente.
+                </p>
+                <a href="libro.pdf" class="btn btn-primary" style="background: linear-gradient(135deg, #c9a227, #d4af37); color: #000; padding: 16px 32px; border-radius: 12px; font-weight: bold; text-decoration: none;">⬇️ DESCARGAR MI LIBRO AHORA</a>
+                <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">Te hemos enviado un correo con el recibo.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN: LOGIN ADMIN -->
+    <div id="sec-login" class="spa-section">
+        <div style="background: #13111f; border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 16px; width: 100%; max-width: 400px; text-align: center; margin: auto;">
+            <h2 style="color: #fff; margin-bottom: 10px;">Panel de Control</h2>
+            <p style="color: #5c5880; margin-bottom: 30px;">Acceso exclusivo CAMP</p>
+            <form id="spaLoginForm" style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" id="spa_username" placeholder="Usuario" style="padding: 12px; border-radius: 8px; border: 1px solid #333; background: #1a1730; color: #fff;">
+                <input type="password" id="spa_password" placeholder="Contraseña" style="padding: 12px; border-radius: 8px; border: 1px solid #333; background: #1a1730; color: #fff;">
+                <button type="submit" class="btn btn-primary" style="padding: 14px; border-radius: 8px; font-weight: bold;">Entrar al Sistema</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SECCIÓN: DASHBOARD (CARGA AJAX) -->
+    <div id="sec-dashboard" class="spa-section">
+        <iframe id="dashboard-iframe" src="about:blank" style="width: 100%; height: 100vh; border: none;"></iframe>
+    </div>
+
+    <!-- BOTONES FLOTANTES GLOBALES -->
+    <!-- (WhatsApp y Chatbot se mantienen fuera de las secciones para estar siempre visibles o se pueden ocultar via JS) -->
+
+    <!-- SPA ROUTER LOGIC -->
+    <script>
+        const SPA = {
+            init() {
+                this.router();
+                window.addEventListener('hashchange', () => this.router());
+                this.handleStatus();
+                // Add Admin link to original navbar
+                const navLinks = document.querySelector('.nav-menu');
+                if (navLinks && !document.querySelector('.nav-admin')) {
+                    const li = document.createElement('li');
+                    li.innerHTML = '<a href="#admin-login" class="nav-admin">Admin</a>';
+                    navLinks.appendChild(li);
+                }
+                
+                // Handle Login
+                const loginForm = document.getElementById('spaLoginForm');
+                if (loginForm) {
+                    loginForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const user = document.getElementById('spa_username').value;
+                        const pass = document.getElementById('spa_password').value;
+                        // For demonstration, any login works or check against Auth if defined
+                        if (user === 'admin' && pass === 'admin') {
+                            window.location.hash = '#dashboard';
+                        } else {
+                            alert('Credenciales incorrectas (Prueba con admin/admin)');
+                        }
+                    });
+                }
+            },
+            router() {
+                const hash = window.location.hash || '#inicio';
+                console.log('Routing to:', hash);
+                
+                if (hash === '#admin-login' || hash === '#dashboard') {
+                    this.showSection(hash === '#dashboard' ? 'sec-dashboard' : 'sec-login');
+                    if (hash === '#dashboard') this.loadDashboard();
+                } else if (hash === '#thanks') {
+                    this.showSection('sec-thanks');
+                } else {
+                    this.showSection('sec-landing');
+                    // Scroll to ID if needed
+                    if (hash !== '#inicio' && hash.startsWith('#')) {
+                        const target = document.querySelector(hash);
+                        if (target) target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            },
+            showSection(id) {
+                document.querySelectorAll('.spa-section').forEach(s => s.classList.remove('active'));
+                const target = document.getElementById(id);
+                if (target) target.classList.add('active');
+                window.scrollTo(0, 0);
+            },
+            handleStatus() {
+                if (new URLSearchParams(window.location.search).get('status') === 'success') {
+                    window.location.hash = '#thanks';
+                }
+            },
+            loadDashboard() {
+                const iframe = document.getElementById('dashboard-iframe');
+                if (iframe.src === 'about:blank' || iframe.src === '') {
+                    iframe.src = 'sistema/index.html';
+                }
+            }
+        };
+        document.addEventListener('DOMContentLoaded', () => SPA.init());
+    </script>
+</body>
+
+</html>

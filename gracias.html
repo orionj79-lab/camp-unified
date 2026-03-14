@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu compra! - Esperando contra toda esperanza</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-bg: rgba(22, 27, 34, 0.7);
+            --primary: #c9a227;
+            /* Gold/Ocre for hope and royalty */
+            --primary-hover: #e0b83e;
+            --text-main: #e6edf3;
+            --text-muted: #8b949e;
+            --border-color: rgba(201, 162, 39, 0.2);
+            --accent-gradient: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);
+            --glass-bg: rgba(22, 27, 34, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --success-color: #238636;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(201, 162, 39, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(201, 162, 39, 0.08), transparent 25%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- STAGE 1: GRATITUDE & DELIVERY --- */
+        .delivery-section {
+            text-align: center;
+            padding: 50px 40px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+            border-top: 3px solid var(--primary);
+        }
+
+        .check-icon {
+            font-size: 60px;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(35, 134, 54, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .delivery-text {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(201, 162, 39, 0.5);
+        }
+
+        .btn-download {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-download:hover {
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .delivery-disclaimer {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        /* --- STAGE 2: THE INVITATION (UPSELL) --- */
+        .upsell-section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            position: relative;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+            margin: 40px 0;
+        }
+
+        .upsell-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .upsell-sub {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .upsell-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .quote-block {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+
+        .human-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #d1d5da;
+        }
+
+        /* Diplomado Details */
+        .course-details {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            color: var(--primary);
+            background: rgba(201, 162, 39, 0.1);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            color: #fff;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        .feature-text p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .price-box {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(201, 162, 39, 0.05);
+            border-radius: 12px;
+            border: 1px dashed rgba(201, 162, 39, 0.3);
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .special-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .btn-gigante {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .guarantee {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .author-signature {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary);
+            /* Placeholder for author photo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .author-info h4 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.95rem;
+            color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .delivery-section {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .upsell-title {
+                font-size: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- STAGE 1: THE DELIVERY -->
+        <div class="delivery-section">
+            <div class="check-icon">✅</div>
+            <h1>¡Gracias, tu lugar está asegurado!</h1>
+            <p class="delivery-text">
+                Tu pago se procesó correctamente. Acabo de enviarte un correo con el recibo y los detalles, pero no
+                tienes que esperar más. Puedes descargar tu copia en formato PDF inmediatamente.
+            </p>
+
+            <!-- Link to download the PDF. Update href with actual file path later -->
+            <a href="libro.pdf" class="btn btn-download">⬇️
+                DESCARGAR MI LIBRO AHORA</a>
+
+            <p class="delivery-disclaimer">Si no ves el correo en los próximos 5 minutos, por favor revisa tu carpeta de
+                Spam o Correo no deseado.</p>
+        </div>
+
+
+        <!-- STAGE 2: THE INVITATION (UPSELL) -->
+        <div class="upsell-section">
+            <div class="upsell-header">
+                <div class="upsell-sub">Antes de que te vayas...</div>
+                <h2 class="upsell-title">El libro te dará el mapa. <br><span style="color: var(--primary);">Yo quiero
+                        caminar el desierto a tu lado.</span></h2>
+            </div>
+
+            <p class="human-text">
+                Hola, soy J.J. Vargas.
+            </p>
+            <p class="human-text">
+                Primero que nada, gracias por confiar en mí y en estas páginas. Escribí este libro con el corazón roto,
+                en medio de mis propias salas de espera, buscando respuestas a los silencios que amenazaban con
+                destruirme.
+            </p>
+
+            <blockquote class="quote-block">
+                Leer el libro curará muchas heridas. Entenderás tu proceso y dejarás de culparte. Pero he descubierto
+                que la transformación más profunda no ocurre cuando leemos solos, ocurre cuando procesamos acompañados.
+            </blockquote>
+
+            <p class="human-text">
+                A lo largo de los años, me di cuenta de que muchos lectores cerraban el libro sintiéndose aliviados,
+                pero a las pocas semanas, el desespero de la espera volvía a golpear a su puerta. El aislamiento es el
+                enemigo más grande de quien está esperando un milagro.
+            </p>
+            <p class="human-text">
+                No quiero que leas y te quedes con la teoría. Quiero asegurarme de que sobrevivas a tu propia espera sin
+                perder la fe, tu familia, o a ti mismo.
+            </p>
+
+            <!-- DOCTRINE / COURSE DETAILS -->
+            <div class="course-details">
+                <h3 style="font-size: 1.8rem; margin-bottom: 15px; text-align: center;">Te invito al Diplomado Oficial
+                </h3>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">12 sesiones inmersivas
+                    para transformar tu sala de espera en un cuarto de guerra.</p>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎙️</div>
+                        <div class="feature-text">
+                            <h4>12 Sesiones en Video</h4>
+                            <p>Profundizamos juntos capítulo por capítulo. Yo te guiaré a través del dolor hacia el
+                                propósito.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📝</div>
+                        <div class="feature-text">
+                            <h4>Ejercicios Prácticos (Workbook)</h4>
+                            <p>No es solo teoría. Aplicaremos diagnósticos reales para desenmascarar por qué tu espera
+                                duele tanto.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <div class="feature-text">
+                            <h4>Comunidad Exclusiva</h4>
+                            <p>Acceso a un círculo de contención donde abrazamos tus dudas sin juzgarte con respuestas
+                                de cajón.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <div class="feature-text">
+                            <h4>Acceso de por Vida</h4>
+                            <p>Podrás volver a las sesiones cada vez que el silencio te abrume. Estará ahí para ti
+                                siempre.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-box">
+                    <div style="font-weight: 600; margin-bottom: 10px;">OFERTA ÚNICA PARA NUEVOS LECTORES</div>
+                    <div class="original-price">Valor regular: $1,497 MXN</div>
+                    <div class="special-price">$497 MXN</div>
+                    <div class="price-note">Pago único. No hay cobros ocultos ni mensualidades.</div>
+
+                    <!-- REEMPLAZAR ESTE LINK POR EL LINK DE PAGO DEL DIPLOMADO EN STRIPE -->
+                    <a href="https://buy.stripe.com/test_XYZ" class="btn btn-primary btn-gigante">SÍ, QUIERO UNIRME AL
+                        DIPLOMADO AHORA</a>
+
+                    <div class="guarantee">
+                        🛡️ Garantía de 7 días. Si sientes que el diplomado no te ayuda a sobrellevar tu espera, te
+                        devuelvo tu dinero.
+                    </div>
+                </div>
+            </div>
+
+            <p class="human-text" style="text-align: center;">
+                <em>(Importante: Al salir de esta página, el diplomado volverá a su precio regular. Esta es mi forma de
+                    premiar a los verdaderos buscadores que ya tienen el libro).</em>
+            </p>
+
+            <div class="author-signature">
+                <div class="author-img">JJ</div>
+                <div class="author-info">
+                    <h4>J.J. Vargas</h4>
+                    <p>Autor y Compañero de Asedio</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
