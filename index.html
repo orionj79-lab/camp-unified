@@ -1608,11 +1608,18 @@
                         e.preventDefault();
                         const user = document.getElementById('spa_username').value;
                         const pass = document.getElementById('spa_password').value;
-                        // For demonstration, any login works or check against Auth if defined
-                        if (user === 'admin' && pass === 'admin') {
+                        
+                        // Credenciales soportadas (Admin genérico y JJ Vargas)
+                        const isValid = (user === 'admin' && pass === 'admin') || 
+                                        (user === 'jjvargas' && pass === 'Orion2509#');
+
+                        if (isValid) {
+                            // Sincronizar con el sistema de seguimiento (localStorage)
+                            localStorage.setItem('camp_auth_token', 'demo_active_token_xyz');
+                            localStorage.setItem('camp_user_email', user);
                             window.location.hash = '#dashboard';
                         } else {
-                            alert('Credenciales incorrectas (Prueba con admin/admin)');
+                            alert('Credenciales incorrectas. Verifica tu usuario y contraseña.');
                         }
                     });
                 }
