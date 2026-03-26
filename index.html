@@ -1133,7 +1133,468 @@
             font-size: 0.8rem;
             margin-left: 10px;
         }
-    </style>
+    
+/* DIPLOMADO CSS */
+
+    #sec-diplomado{
+      /* Executive Light Theme Adaptive */
+      --bg: #F8F9FA;      
+      --bg-2: #FFFFFF;    
+      --card: #FFFFFF;    
+      --gold: #3B71D0;    
+      --gold-2: #1E2330;  
+      --text: #2D3748;    
+      --muted: #4A5568;   
+      --accent: #3B71D0;  
+      --success: #16a34a;
+      --border: rgba(30, 35, 48, 0.1);
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 20px;
+      --max: 1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    #sec-diplomado {
+      margin:0;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.5;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .dip-container{width:min(92%, var(--max)); margin:0 auto}
+    .dip-section{padding:72px 0}
+    .dip-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 16px;
+      border:1px solid rgba(255,255,255,0.4);
+      border-radius:999px;
+      background:rgba(255,255,255,0.15);
+      color:#FFF;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+
+    .dip-nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(30, 35, 48, 0.95);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+      color: #FFF;
+    }
+    .dip-nav .dip-brand { color: #FFF; }
+    .dip-nav .dip-btn-secondary { color: #FFF; border-color: rgba(255,255,255,0.3); }
+    .dip-nav .dip-btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .dip-nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:16px 0;
+    }
+    .dip-brand{
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:.3px;
+      text-transform: uppercase;
+    }
+    .dip-brand span{color:var(--gold)}
+    .dip-nav-cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .dip-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      padding:0 22px;
+      border-radius:14px;
+      border:1px solid transparent;
+      font-weight:800;
+      font-size:15px;
+      transition:.25s ease;
+      cursor:pointer;
+    }
+    .dip-btn-primary{
+      background:linear-gradient(135deg, var(--gold), #b38f2a);
+      color:#111;
+      box-shadow:0 12px 30px rgba(212,175,55,.28);
+    }
+    .dip-btn-primary:hover{transform:translateY(-1px); filter:brightness(1.08)}
+    .dip-btn-secondary{
+      background:transparent;
+      border-color:rgba(255,255,255,.15);
+      color:var(--text);
+    }
+    .dip-btn-secondary:hover{background:rgba(255,255,255,.05)}
+
+    .dip-hero{
+      padding:100px 0 80px;
+      /* Background taken completely from the book hero */
+      background: linear-gradient(180deg, rgba(30,35,48, 0.85) 0%, rgba(59,113,208, 0.8) 100%), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2670') no-repeat center center/cover;
+      color: #FFF;
+      margin-top: -85px; /* Pull up to hide behind nav */
+      padding-top: 170px; /* Offset the pull up so content is visible */
+    }
+    .dip-hero h1, .dip-hero p.dip-lead, .dip-hero-list li, .dip-hero-note { color: #FFF !important; }
+    .dip-hero h1 .dip-gold { color: #FFF; font-weight: 900; }
+    .dip-hero-list li::before { color: #FFF; }
+    .dip-hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:32px;
+      align-items:center;
+    }
+    .dip-hero h1{
+      font-size:clamp(34px, 5vw, 62px);
+      line-height:1.04;
+      margin:18px 0 18px;
+      letter-spacing:-.02em;
+    }
+    .dip-hero h1 .dip-gold{color:#FFF; font-weight:900;}
+    .dip-hero p.dip-lead{
+      font-size:clamp(18px, 2.2vw, 22px);
+      color:#FFF;
+      max-width:760px;
+      margin:0 0 26px;
+    }
+    .dip-hero-list{
+      display:grid;
+      gap:12px;
+      margin:0 0 28px;
+      padding:0;
+      list-style:none;
+    }
+    .dip-hero-list li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      color:#FFF;
+      font-size:16px;
+    }
+    .dip-hero-list li::before{
+      content:"✓";
+      color:#FFF;
+      font-weight:900;
+      margin-top:1px;
+    }
+    .dip-hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .dip-hero-note{
+      font-size:14px;
+      color:rgba(255,255,255,0.8);
+    }
+
+    .dip-card{
+      background:#FFFFFF;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .dip-hero-card{
+      padding:26px;
+      position:relative;
+      overflow:hidden;
+    }
+    .dip-hero-card::after{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:180px;
+      height:180px;
+      background:radial-gradient(circle, rgba(59, 113, 208, 0.2), transparent 65%);
+      pointer-events:none;
+    }
+    .dip-price{
+      font-size:46px;
+      font-weight:900;
+      margin:8px 0 4px;
+      color:var(--gold-2);
+    }
+    .dip-small{
+      font-size:14px;
+      color:var(--muted);
+    }
+    .dip-divider{
+      height:1px;
+      background:var(--border);
+      margin:18px 0;
+    }
+    .dip-mini-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:10px;
+    }
+    .dip-mini-list li{
+      color:var(--muted);
+      font-size:15px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .dip-mini-list li::before{
+      content:"•";
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .dip-section-title, .dip-dip-section-title{
+      font-size:clamp(28px, 4vw, 42px);
+      line-height:1.1;
+      margin:0 0 14px;
+      letter-spacing:-.02em;
+    }
+    .dip-section-sub, .dip-dip-section-sub{
+      color:var(--muted);
+      max-width:820px;
+      font-size:18px;
+      margin:0 0 26px;
+    }
+
+    .dip-grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+    .dip-grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:22px;
+    }
+
+    .dip-feature-card, .feature-dip-card, .dip-week-card, .week-dip-card, .dip-result-card, .result-dip-card, .dip-faq-item, .faq-dip-item{
+      padding:24px;
+    }
+    .dip-feature-card, .feature-dip-card h3,
+    .dip-week-card, .week-dip-card h3,
+    .dip-result-card, .result-dip-card h3{
+      margin:0 0 10px;
+      font-size:21px;
+      color: var(--gold-2);
+    }
+    .dip-feature-card, .feature-dip-card p,
+    .dip-week-card, .week-dip-card p,
+    .dip-result-card, .result-dip-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .dip-problem-list, .dip-include-list, .dip-result-list{
+      display:grid;
+      gap:14px;
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .dip-problem-list li,
+    .dip-include-list li,
+    .dip-result-list li{
+      background:#FFFFFF;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px 18px;
+      color:var(--text);
+      border-left: 3px solid var(--accent);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .dip-weeks{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:22px;
+    }
+    .dip-week-card, .week-dip-card span.dip-label{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:12px;
+      font-weight:800;
+      color:var(--gold-2);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .dip-pricing-wrap{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .dip-pricing-main{
+      padding:28px;
+      border-top: 5px solid var(--gold);
+    }
+    .dip-pricing-main .dip-price{
+      font-size:58px;
+    }
+    .dip-pricing-side{
+      padding:28px;
+      border-top: 5px solid var(--accent);
+    }
+    .dip-tag{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(59, 113, 208, 0.14);
+      color:#86b6ef;
+      border:1px solid rgba(134, 191, 239, 0.2);
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .dip-faq{
+      display:grid;
+      gap:16px;
+    }
+    .dip-faq-item, .faq-dip-item summary{
+      cursor:pointer;
+      font-weight:800;
+      font-size:17px;
+      list-style:none;
+      color: var(--gold-2);
+    }
+    .dip-faq-item, .faq-dip-item summary::-webkit-details-marker{display:none}
+    .dip-faq-item, .faq-dip-item p{
+      margin:12px 0 0;
+      color:var(--muted);
+    }
+
+    .dip-cta-final{
+      text-align:center;
+      padding:46px;
+      background: linear-gradient(180deg, rgba(30,35,48, 0.95) 0%, rgba(59,113,208, 0.9) 100%), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2670') no-repeat center center/cover;
+      color: #FFF;
+      border-radius: 20px;
+    }
+    .dip-cta-final h2, .dip-cta-final p { color: #FFF !important; }
+    .dip-cta-final h2{
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.08;
+      margin:0 0 14px;
+    }
+    .dip-cta-final p{
+      max-width:760px;
+      margin:0 auto 22px;
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    footer{
+      padding:30px 0 60px;
+      color:#94a3b8;
+      text-align:center;
+      font-size:14px;
+      background: var(--bg-2);
+    }
+
+    @media (max-width: 980px){
+      .dip-hero-grid,
+      .dip-pricing-wrap,
+      .dip-grid-3,
+      .dip-grid-2,
+      .dip-weeks{
+        grid-template-columns:1fr;
+      }
+      .dip-nav-inner{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+
+    @media (max-width: 640px){
+      .dip-hero{padding-top:64px}
+      .dip-section{padding:54px 0}
+      .dip-btn{width:100%}
+      .dip-hero-actions{flex-direction:column}
+      .dip-nav-cta{width:100%}
+      .dip-pricing-main .dip-price{font-size:48px}
+    }
+
+    /* FIX LEGIBILIDAD TITULOS */
+    #sec-diplomado .dip-dip-section-title, 
+    #sec-diplomado .dip-section-title {
+      color: #000000 !important;
+      font-weight: 900 !important;
+    }
+    #programa .dip-section-title,
+    #programa .dip-dip-section-title {
+      color: #FFF !important;
+    }
+
+    /* FIX LEGIBILIDAD: Textos oscuros y en negrita para el contenido claro */
+    .dip-section-sub, .dip-dip-section-sub,
+    .dip-feature-card, .feature-dip-card p, 
+    .dip-week-card, .week-dip-card p, 
+    .dip-result-card, .result-dip-card p, 
+    .dip-faq-item, .faq-dip-item p,
+    .dip-problem-list li, 
+    .dip-include-list li, 
+    .dip-result-list li, 
+    .dip-mini-list li {
+       font-weight: 600 !important;
+       color: #1a202c !important; /* Gris ultra oscuro casi negro para contrastar fuerte */
+    }
+
+    /* ESTILO UNIVERSITARIO PARA #programa */
+
+    #programa {
+      background: linear-gradient(135deg, var(--primary, #1E2330), #131722);
+      color: #FFF;          
+      padding: 85px 0;
+      border-top: 5px solid var(--secondary, #3B71D0); 
+      border-bottom: 5px solid var(--secondary, #3B71D0);
+      margin: 40px 0;
+    }
+    #programa .dip-section-title, .dip-dip-section-title {
+      color: #FFF;
+      font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif; 
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    #programa .dip-section-sub, .dip-dip-section-sub {
+      color: #cbd5e1;
+    }
+    #programa .dip-week-card, .week-dip-card {
+      background: #FFFFFF !important;
+      color: #111827 !important;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    #programa .dip-week-card, .week-dip-card * {
+      color: #111827 !important;
+
+      border-radius: 12px;
+      border-left: 6px solid var(--secondary, #3B71D0); 
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    #programa .dip-week-card, .week-dip-card h3 {
+      color: var(--primary, #1E2330);
+      font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+    }
+    #programa .dip-week-card, .week-dip-card span.dip-label {
+      color: var(--secondary, #3B71D0);
+      background: rgba(59, 113, 208, 0.1);
+      border: none;
+    }
+  
+</style>
 </head>
 
 <body>
@@ -1149,6 +1610,7 @@
                 <li><a href="#ofrece">Qué ofrece</a></li>
                 <li><a href="#capitulo-gratis">Capítulo Gratis</a></li>
                 <li><a href="#comunidad">Comunidad</a></li>
+                <li><a href="diplomado.html">Diplomado</a></li>
                 <li><a href="#compra" class="nav-comprar">Comprar</a></li>
             </ul>
             <div class="hamburger" id="hamburger">☰</div>
@@ -1163,8 +1625,9 @@
                 <h2>El silencio de Dios no es ausencia de Dios</h2>
                 <p class="impacto">Un estudio para los que han visto el milagro pero siguen esperando.</p>
                 <div class="hero-actions">
-                    <a href="#compra" class="btn btn-primary">COMPRAR LIBRO DIGITAL POR $120</a>
-                    <a href="#capitulo-gratis" class="btn btn-outline">QUIERO EL CAPÍTULO GRATIS</a>
+                    <a href="#compra" class="btn" style="background-color: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px rgba(30, 35, 48, 0.4);">COMPRAR LIBRO DIGITAL POR $120</a>
+                    <a href="#capitulo-gratis" class="btn" style="background-color: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px rgba(30, 35, 48, 0.4);">QUIERO EL CAPÍTULO GRATIS</a>
+                    <a href="diplomado.html" class="btn" style="background-color: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px rgba(30, 35, 48, 0.4);">QUIERO INSCRIBIRME AL DIPLOMADO</a>
                 </div>
             </div>
             <div class="hero-image fade-in-section">
@@ -1435,6 +1898,7 @@
             <button class="chat-quick-btn">¿Cuál es el precio?</button>
             <button class="chat-quick-btn">¿Es formato impreso?</button>
             <button class="chat-quick-btn">Quiero el capítulo gratis</button>
+            <button class="chat-quick-btn">Info del Diplomado</button>
             <button class="chat-quick-btn">¿Qué incluye el onboarding?</button>
         </div>
         <div class="chat-input-area">
@@ -1490,6 +1954,8 @@
 
                 if (msg.includes('prueba') || msg.includes('test')) {
                     response = "Hola, gracias por la prueba. ¡El bot está activo y listo para conectar con tu audiencia! ¿Deseas hacer alguna otra prueba?";
+                } else if (msg.includes('diplomado') || msg.includes('curso') || msg.includes('clases') || msg.includes('programa')) {
+                    response = "El **Diplomado en Inteligencia Emocional para el Emprendimiento** es un viaje de 7 semanas diseñado para darte una ruta clara de acción e ingreso. Tiene un costo de $7,500 MXN e incluye sesiones en vivo, constancia con valor curricular y acceso a la comunidad. ¿Te gustaría conocer el temario completo?<br><br>👉 <a href='#diplomado'>Haz clic aquí para ver los temas y reservar tu lugar</a>";
                 } else if (msg.includes('costo') || msg.includes('precio') || msg.includes('cuesta') || msg.includes('comprar')) {
                     response = "El costo de no saber lidiar con la espera prolongada suele ser muy alto emocionalmente. Por eso hicimos esta guía súper accesible: El libro digital cuesta solo **$120 MXN**, y te incluye acceso directo a un onboarding en vivo con el autor. <br><br>👉 <a href='https://buy.stripe.com/8x2fZjcsu5L4ejNgYp77O01' target='_blank'>Haz clic aquí para COMPRAR AHORA (OFERTA LIMITADA ESPECIAL)</a>";
                 } else if (msg.includes('fisico') || msg.includes('impreso') || msg.includes('envio')) {
@@ -1545,10 +2011,19 @@
     <a href="https://wa.me/524427942009?text=Hola,%20me%20interesa%20el%20libro%20Esperando%20contra%20toda%20esperanza"
         class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Contáctanos por WhatsApp">
         <svg viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.662-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 1C5.41 1 .05 6.36.05 13c0 2.12.55 4.18 1.59 6l-1.69 6.18 6.33-1.66c1.83 1 3.93 1.53 6.07 1.53 6.64 0 12-5.36 12-12 0-3.22-1.25-6.24-3.53-8.52z"/>
-        </svg>
-    </a>
-</div><!-- Fin #sec-landing -->
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.662-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0     <!-- SECCIÓN: DIPLOMADO (Migrado a diplomado.html) -->
+    <div id="sec-diplomado" class="spa-section">
+        <div class="container" style="text-align: center; padding: 15vh 0;">
+            <h2 style="color: #fff; margin-bottom: 20px;">La información del Diplomado se ha actualizado</h2>
+            <p style="color: #cbd5e1; margin-bottom: 30px;">Hemos creado una experiencia dedicada y mucho más completa para ti.</p>
+            <a href="diplomado.html" class="btn" style="background-color: var(--primary); color: #fff; border: 1px solid var(--primary); padding: 15px 30px; border-radius: 8px; text-decoration: none;">Ver el nuevo Diplomado</a>
+        </div>
+    </div> <p style="margin-bottom: 30px; opacity: 0.8; color: #000000; font-weight: 500;">Potenciando el espíritu emprendedor con inteligencia emocional estratégica.</p>
+      <p style="font-size: 12px; opacity: 0.7; color: #000000;">© 2026 · Diplomado Inteligencia Emocional para el Emprendimiento · Todos los derechos reservados · MindHub Dynamics</p>
+    </div>
+  </footer>
+
+    </div>
 
     <!-- SECCIÓN: GRACIAS (ÉXITO) -->
     <div id="sec-thanks" class="spa-section">
@@ -1631,6 +2106,8 @@
                 if (hash === '#admin-login' || hash === '#dashboard') {
                     this.showSection(hash === '#dashboard' ? 'sec-dashboard' : 'sec-login');
                     if (hash === '#dashboard') this.loadDashboard();
+                } else if (hash === '#diplomado') {
+                    this.showSection('sec-diplomado');
                 } else if (hash === '#thanks') {
                     this.showSection('sec-thanks');
                 } else {
