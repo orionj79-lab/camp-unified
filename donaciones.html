@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕊️ Haz que la esperanza siga llegando | Donaciones | Esperando contra toda esperanza</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta de colores solicitada */
+            --arena: #F5E6D3;
+            --terraccota: #C47A5E;
+            --miel: #C69C6D;
+            --piedra: #8B7A6B;
+            --lino: #FFF9F0;
+            --text-dark: #2D241E;
+            --white: #FFFFFF;
+            
+            --font-headings: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --shadow: 0 10px 30px rgba(139, 122, 107, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--lino);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-headings);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* --- Header --- */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(rgba(245, 230, 211, 0.8), rgba(255, 249, 240, 0.9)), url('fondo donaciones.gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--terraccota);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--piedra);
+            font-weight: 400;
+        }
+
+        /* --- Explicación --- */
+        .intro-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .intro-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--arena);
+        }
+
+        .intro-text {
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-dark);
+        }
+
+        .philosophy-quote {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--arena);
+            color: var(--miel);
+            font-family: var(--font-headings);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* --- Progress Bar --- */
+        .goal-section {
+            padding: 60px 0;
+        }
+
+        .goal-container {
+            background: var(--piedra);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .goal-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .progress-wrapper {
+            background: rgba(255, 255, 255, 0.2);
+            height: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--miel), var(--arena));
+            width: 0%; /* Updated via JS */
+            transition: width 1.5s ease-in-out;
+        }
+
+        .goal-status {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* --- Donation Cards --- */
+        .donations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        .donate-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid var(--arena);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .donate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(196, 122, 94, 0.1);
+            border-color: var(--terraccota);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--terraccota);
+        }
+
+        .card-price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--piedra);
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        /* --- Custom Amount Focus --- */
+        .card-special {
+            border: 2px solid var(--miel);
+            background: linear-gradient(to bottom, var(--white), var(--arena));
+        }
+
+        .amount-input-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .amount-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--arena);
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .amount-input:focus {
+            border-color: var(--miel);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-stripe {
+            background-color: var(--terraccota);
+            color: var(--white);
+        }
+
+        .btn-stripe:hover {
+            background-color: #a6654e;
+            filter: brightness(1.1);
+        }
+
+        .btn-miel {
+            background-color: var(--miel);
+            color: var(--white);
+        }
+
+        .btn-miel:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--piedra);
+            color: var(--piedra);
+            margin-top: 10px;
+        }
+
+        .btn-outline:hover {
+            background: var(--piedra);
+            color: var(--white);
+        }
+
+        /* --- Stripe Payment Selector --- */
+        .stripe-section {
+            padding: 60px 0 20px;
+        }
+
+        .stripe-card {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 50px 44px;
+            box-shadow: 0 20px 60px rgba(139, 122, 107, 0.15);
+            border: 1px solid var(--arena);
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stripe-card h2 {
+            font-size: 2rem;
+            color: var(--terraccota);
+            margin-bottom: 10px;
+        }
+
+        .stripe-card .subtitle {
+            color: var(--piedra);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        .amount-presets {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .amount-presets {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .preset-btn {
+            background: var(--lino);
+            border: 2px solid var(--arena);
+            border-radius: 12px;
+            padding: 14px 8px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .preset-btn:hover,
+        .preset-btn.active {
+            background: var(--terraccota);
+            border-color: var(--terraccota);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .custom-amount-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            border: 2px solid var(--arena);
+            border-radius: 14px;
+            padding: 12px 18px;
+            background: var(--lino);
+            transition: border-color 0.3s;
+        }
+
+        .custom-amount-row:focus-within {
+            border-color: var(--miel);
+        }
+
+        .custom-amount-row span {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--miel);
+            white-space: nowrap;
+        }
+
+        .custom-amount-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            outline: none;
+        }
+
+        .custom-amount-hint {
+            font-size: 0.8rem;
+            color: var(--piedra);
+            margin-top: -18px;
+            margin-bottom: 24px;
+        }
+
+        .btn-pay-stripe {
+            background: linear-gradient(135deg, #635BFF 0%, #4F46E5 100%);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            padding: 18px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(99, 91, 255, 0.35);
+        }
+
+        .btn-pay-stripe:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(99, 91, 255, 0.45);
+            filter: brightness(1.08);
+        }
+
+        .btn-pay-stripe:disabled,
+        .btn-pay-stripe.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .stripe-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: var(--piedra);
+        }
+
+        .stripe-badge svg {
+            opacity: 0.7;
+        }
+
+        /* --- WhatsApp Large Donation --- */
+        .whatsapp-large-section {
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 1px dashed var(--arena);
+        }
+
+        .whatsapp-large-section p {
+            font-size: 0.95rem;
+            color: var(--piedra);
+            margin-bottom: 16px;
+        }
+
+        .btn-whatsapp-large {
+            background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            padding: 16px 32px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
+            filter: brightness(1.05);
+        }
+
+        .amount-display-badge {
+            display: inline-block;
+            background: var(--arena);
+            color: var(--terraccota);
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            margin: 0 auto 24px;
+            font-family: var(--font-headings);
+        }
+
+        /* --- Payment Options Section --- */
+        .payment-methods {
+            background: var(--arena);
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .method-box {
+            max-width: 600px;
+            margin: 40px auto;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: left;
+        }
+
+        .method-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--terraccota);
+        }
+
+        /* --- Transparency --- */
+        .transparency {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .transparency h2 {
+            margin-bottom: 30px;
+        }
+
+        .accountability-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px dashed var(--miel);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--piedra);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .share-section {
+            margin-bottom: 40px;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: var(--terraccota);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            border: 1px solid var(--arena);
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 80px 0 40px; }
+            .donations-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="nav-back">← Volver al inicio</a>
+
+    <!-- 1. ENCABEZADO PRINCIPAL -->
+    <header class="hero">
+        <div class="container text-center">
+            <h1>🕊️ Haz que la esperanza siga llegando</h1>
+            <p>Tus donaciones sostienen este proyecto. Publicidad, canales, producción… todo cuesta. Juntos podemos mantenerlo vivo.</p>
+        </div>
+    </header>
+
+    <!-- 2. EXPLICACIÓN FILOSÓFICA -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-box">
+                <p class="intro-text">
+                    "El podcast, el blog sonoro, los videos, los posts en redes… nada de esto sería posible sin un equipo detrás y sin recursos para llegar a más personas. Cada donación, por pequeña que sea, nos ayuda a pagar hosting, edición de audio, publicidad y tiempo de producción. Así, quien hoy está pasando por un mal momento puede encontrarnos y sentirse acompañado."
+                </p>
+                <p class="philosophy-quote">
+                    "La esperanza no se compra, se comparte. Quien ha recibido consuelo, puede consolar; quien ha encontrado luz, puede iluminar."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. META MENSUAL -->
+    <section class="goal-section">
+        <div class="container">
+            <div class="goal-container">
+                <h3 style="margin-bottom: 20px; color: var(--lino);">Nuestra Meta Mensual</h3>
+                <div class="goal-info">
+                    <span id="label-recaudado">Recaudado: $0 MXN</span>
+                    <span id="label-meta">Meta: $3,000 MXN</span>
+                </div>
+                <div class="progress-wrapper">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p class="goal-status" id="goalStatusText">Cargando progreso...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SELECTOR DE DONACIÓN CON STRIPE -->
+    <section class="stripe-section">
+        <div class="container">
+            <div class="stripe-card">
+                <h2>💳 Dona con Tarjeta</h2>
+                <p class="subtitle">Pago seguro procesado por Stripe · Solo toma unos segundos</p>
+
+                <!-- Monto seleccionado visible -->
+                <div class="amount-display-badge" id="amountBadge">Selecciona un monto</div>
+
+                <!-- Botones de monto predefinido -->
+                <div class="amount-presets" id="presetButtons">
+                    <button class="preset-btn" data-amount="20">$20</button>
+                    <button class="preset-btn" data-amount="50">$50</button>
+                    <button class="preset-btn" data-amount="100">$100</button>
+                    <button class="preset-btn" data-amount="150">$150</button>
+                    <button class="preset-btn" data-amount="200">$200</button>
+                    <button class="preset-btn" data-amount="300">$300</button>
+                    <button class="preset-btn" data-amount="500">$500</button>
+                    <button class="preset-btn" data-amount="1000">$1,000</button>
+                    <button class="preset-btn" data-amount="1500">$1,500</button>
+                </div>
+
+                <!-- Campo de monto libre -->
+                <div class="custom-amount-row">
+                    <span>$ MXN</span>
+                    <input type="number" id="customAmountInput" class="custom-amount-input"
+                           placeholder="Otro monto..." min="20" max="99999">
+                </div>
+                <p class="custom-amount-hint">Mínimo $20 MXN · Para montos mayores a $1,500 usa WhatsApp</p>
+
+                <!-- Botón Stripe -->
+                <a id="btnStripe" href="#" target="_blank" class="btn-pay-stripe disabled" onclick="return handleStripeClick(event)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
+                    </svg>
+                    <span id="btnStripeText">Selecciona un monto para continuar</span>
+                </a>
+
+                <div class="stripe-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Pago 100% seguro con Stripe · No guardamos datos de tu tarjeta
+                </div>
+
+                <!-- WhatsApp para donaciones mayores -->
+                <div class="whatsapp-large-section" id="whatsappSection" style="display:none;">
+                    <p>🌟 Para donaciones mayores a <strong>$1,500 MXN</strong>, contáctanos directamente por WhatsApp para coordinar tu aportación especial.</p>
+                    <a id="btnWhatsappLarge" href="#" target="_blank" class="btn-whatsapp-large">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Coordinar donación por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. OTROS MÉTODOS Y ATENCIÓN POR WHATSAPP -->
+    <section class="payment-methods">
+        <div class="container">
+            <h2 style="color: var(--text-dark);">Otras formas de apoyar y atención</h2>
+
+            <!-- OXXO SPIN -->
+            <div class="method-box" style="text-align: center;">
+                <div class="method-title" style="justify-content: center;">
+                    <span style="font-size: 1.5rem;">🏪</span>
+                    <h3>Depósito o Transferencia OXXO</h3>
+                </div>
+                <p style="font-size: 0.95rem; color: var(--piedra); margin-bottom: 20px;">Puedes hacer tu donativo en efectivo desde cualquier caja OXXO o mediante transferencia interbancaria a nuestra cuenta Spin by OXXO:</p>
+                <div style="background: var(--lino); border: 1px solid var(--arena); padding: 15px; border-radius: 12px; display: inline-block; text-align: left; margin: 0 auto; color: var(--text-dark); font-size: 1.05rem;">
+                    <p style="margin-bottom: 5px;"><strong>Cuenta:</strong> Spin by OXXO</p>
+                    <p style="margin-bottom: 5px;"><strong>Tarjeta:</strong> 4217 4702 6045</p>
+                    <p style="margin-bottom: 0;"><strong>CLABE:</strong> 7289 6900 0077 9626 59</p>
+                </div>
+            </div>
+            
+            <div class="method-box" style="text-align: center;">
+                <div class="method-title" style="justify-content: center;">
+                    <span style="font-size: 1.5rem;">💬</span>
+                    <h3>Escríbenos por WhatsApp</h3>
+                </div>
+                <p style="font-size: 0.95rem; color: var(--piedra); margin-bottom: 20px;">Si tienes dudas sobre tu donación, necesitas una factura o quieres coordinar un apoyo especial, estamos para ayudarte.</p>
+                <a href="https://wa.me/524427942009?text=Hola%2C%20quiero%20información%20sobre%20cómo%20puedo%20apoyar%20al%20proyecto%20Esperando%20contra%20toda%20esperanza" target="_blank" class="btn-whatsapp-large" style="max-width: 400px; margin: 0 auto;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Contáctanos por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. AGRADECIMIENTO Y TRANSPARENCIA -->
+    <section class="transparency">
+        <div class="container">
+            <h2>📊 Rendición de cuentas</h2>
+            <div class="accountability-card">
+                <p style="margin-bottom: 20px;">
+                    "Creemos en la transparencia total porque este proyecto es de todos."
+                </p>
+                <p style="font-size: 0.95rem; color: var(--piedra);">
+                    Al realizar tu donación, recibirás un correo de seguimiento y, opcionalmente, un informe trimestral detallando cómo se han invertido los fondos en hosting, pauta publicitaria y mantenimiento técnico.
+                </p>
+                <p style="margin-top: 20px; font-weight: 600; color: var(--terraccota);">
+                    Cada tres meses publicamos nuestro estado de gastos en la comunidad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 8. PIE DE PÁGINA -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 10px; font-family: var(--font-headings); font-size: 1.5rem;">Esperando contra toda esperanza</p>
+            <p style="margin-bottom: 20px; opacity: 0.8; font-size: 0.9rem;">Hecho con esperanza desde México</p>
+            <div style="margin-bottom: 20px;">
+                <a href="/privacidad" style="color: var(--white); opacity: 0.7; font-size: 0.8rem; margin: 0 10px;">Aviso de Privacidad</a>
+                <a href="/terminos" style="color: var(--white); opacity: 0.7; font-size: 0.8rem; margin: 0 10px;">Términos y condiciones</a>
+            </div>
+            <p style="font-size: 0.75rem; opacity: 0.5;">© 2025 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * =====================================================
+         * CONFIGURACIÓN — EDITA ESTOS VALORES
+         * =====================================================
+         */
+        const CONFIG = {
+            montoMeta: 3000,
+            montoRecaudado: 1200,
+            simboloMoneda: '$',
+            codigoMoneda: 'MXN',
+
+            /**
+             * STRIPE: Crea un Payment Link en dashboard.stripe.com/payment-links
+             * con el precio en «Monto que el cliente elige» (modo «Paga lo que quieras»)
+             * y pega la URL base aquí. Stripe añadirá ?prefilled_amount= automáticamente.
+             *
+             * EJEMPLO: 'https://buy.stripe.com/xxxxxxxx'
+             * O si usas Checkout Sessions con backend: sustituye buildStripeUrl() por tu endpoint.
+             */
+            STRIPE_PAYMENT_LINK: 'https://donate.stripe.com/cNi7sN2RU8Xgb7B6jL77O04',
+
+            /**
+             * WHATSAPP: Número en formato internacional sin + ni espacios.
+             * Ejemplo México: 5212345678901
+             */
+            WHATSAPP_NUMBER: '524427942009',
+
+            /**
+             * Umbral (MXN) en que aparece el botón de WhatsApp.
+             */
+            UMBRAL_WHATSAPP: 1500
+        };
+
+        /* ====================================================
+         * BARRA DE PROGRESO
+         * =================================================== */
+        function actualizarProgreso() {
+            const porcentaje = Math.min((CONFIG.montoRecaudado / CONFIG.montoMeta) * 100, 100);
+            document.getElementById('progressBar').style.width = porcentaje + '%';
+            document.getElementById('label-recaudado').innerText =
+                `Recaudado: ${CONFIG.simboloMoneda}${CONFIG.montoRecaudado.toLocaleString()} ${CONFIG.codigoMoneda}`;
+            document.getElementById('label-meta').innerText =
+                `Meta: ${CONFIG.simboloMoneda}${CONFIG.montoMeta.toLocaleString()} ${CONFIG.codigoMoneda}`;
+
+            const faltante = CONFIG.montoMeta - CONFIG.montoRecaudado;
+            document.getElementById('goalStatusText').innerText = faltante > 0
+                ? `Faltan ${CONFIG.simboloMoneda}${faltante.toLocaleString()} para nuestra meta de este mes`
+                : `¡Meta lograda! Gracias por hacer esto posible. Todo lo extra se destina a publicidad adicional.`;
+        }
+
+        /* ====================================================
+         * SELECTOR DE MONTO — STRIPE + WHATSAPP
+         * =================================================== */
+        let selectedAmount = 0;
+
+        const amountBadge   = document.getElementById('amountBadge');
+        const btnStripe     = document.getElementById('btnStripe');
+        const btnStripeText = document.getElementById('btnStripeText');
+        const whatsappSec   = document.getElementById('whatsappSection');
+        const btnWa         = document.getElementById('btnWhatsappLarge');
+        const customInput   = document.getElementById('customAmountInput');
+
+        /** Construye la URL de Stripe con el monto (en centavos si aplica) */
+        function buildStripeUrl(amountMXN) {
+            // Stripe Payment Links con prefilled_amount usan centavos
+            const cents = Math.round(amountMXN * 100);
+            return `${CONFIG.STRIPE_PAYMENT_LINK}?prefilled_amount=${cents}&currency=mxn`;
+        }
+
+        /** Construye la URL de WhatsApp con mensaje prellenado */
+        function buildWhatsappUrl(amountMXN) {
+            const msg = encodeURIComponent(
+                `Hola, me gustaría hacer una donación de $${amountMXN.toLocaleString()} MXN al proyecto "Esperando contra toda esperanza". ¿Cómo puedo proceder?`
+            );
+            return `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${msg}`;
+        }
+
+        /** Actualiza la UI según el monto recibido */
+        function updateUI(amount) {
+            selectedAmount = amount;
+            const isLarge  = amount > CONFIG.UMBRAL_WHATSAPP;
+            const isValid  = amount >= 20;
+
+            // Badge de monto
+            amountBadge.textContent = isValid
+                ? `$${amount.toLocaleString()} MXN`
+                : 'Selecciona un monto';
+
+            if (isValid && !isLarge) {
+                // Mostrar Stripe, ocultar WhatsApp
+                btnStripe.classList.remove('disabled');
+                btnStripe.href = buildStripeUrl(amount);
+                btnStripeText.textContent = `Donar $${amount.toLocaleString()} MXN con Tarjeta`;
+                whatsappSec.style.display = 'none';
+            } else if (isLarge) {
+                // Ocultar Stripe, mostrar WhatsApp
+                btnStripe.classList.add('disabled');
+                btnStripe.href = '#';
+                btnStripeText.textContent = 'Para este monto usa WhatsApp 👇';
+                whatsappSec.style.display = 'block';
+                btnWa.href = buildWhatsappUrl(amount);
+            } else {
+                // Sin monto válido
+                btnStripe.classList.add('disabled');
+                btnStripe.href = '#';
+                btnStripeText.textContent = 'Selecciona un monto para continuar';
+                whatsappSec.style.display = 'none';
+            }
+        }
+
+        /** Maneja clic en botón Stripe (bloquea si disabled) */
+        function handleStripeClick(e) {
+            if (btnStripe.classList.contains('disabled')) {
+                e.preventDefault();
+                return false;
+            }
+            return true;
+        }
+
+        // Botones de monto predefinido
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                customInput.value = '';
+                updateUI(parseInt(btn.dataset.amount));
+            });
+        });
+
+        // Input de monto libre
+        customInput.addEventListener('input', () => {
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+            const val = parseInt(customInput.value) || 0;
+            updateUI(val);
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            actualizarProgreso();
+        });
+
+        /**
+         * =====================================================
+         * NOTAS DE INTEGRACIÓN
+         * =====================================================
+         * 1. En Stripe Dashboard → Payment Links → crea un enlace de tipo
+         *    "Monto que el cliente elige" y copia la URL en CONFIG.STRIPE_PAYMENT_LINK.
+         * 2. Reemplaza CONFIG.WHATSAPP_NUMBER con tu número real (formato: 524427942009).
+         * 3. Para OXXO completa el número de tarjeta/referencia en el HTML de abajo.
+         * 4. Ajusta CONFIG.UMBRAL_WHATSAPP si quieres cambiar a qué monto aparece WhatsApp.
+         */
+    </script>
+</body>
+</html>

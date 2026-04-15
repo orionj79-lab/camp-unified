@@ -1,0 +1,58 @@
+# =============================================
+# HTTPS REDIRECT — Forzar HTTPS siempre
+# =============================================
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# =============================================
+# SECURITY HEADERS
+# =============================================
+<IfModule mod_headers.c>
+    # Evita que el sitio sea embebido en iframes de otros dominios
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Evita sniffing de MIME types
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Referrer controlado
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # HSTS — Forzar HTTPS por 1 año
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Content Security Policy básica (permite fonts, stripe, wa.me, youtube)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.google-analytics.com; frame-src https://www.youtube.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; form-action 'self' https://buy.stripe.com https://wa.me"
+
+    # Permisos de funciones del navegador
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+    # Eliminar header que expone versión del servidor
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# =============================================
+# CACHÉ DE ASSETS ESTÁTICOS
+# =============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 6 months"
+    ExpiresByType image/png "access plus 6 months"
+    ExpiresByType image/webp "access plus 6 months"
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>
+
+# =============================================
+# COMPRESIÓN GZIP
+# =============================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/xml
+</IfModule>
+
+# =============================================
+# PÁGINA 404 PERSONALIZADA
+# =============================================
+ErrorDocument 404 /index.html

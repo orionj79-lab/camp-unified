@@ -5,9 +5,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esperando contra toda esperanza | J.J. Vargas</title>
-    <meta name="description"
-        content="Un estudio para los que han visto el milagro pero siguen esperando. El nuevo libro de J.J. Vargas.">
+
+    <!-- ==========================================
+         SEO PRIMARIO
+         ========================================== -->
+    <title>Esperando Contra Toda Esperanza | Libro de Fe y Resiliencia | J.J. Vargas</title>
+    <meta name="description" content="Libro espiritual y cristiano para personas en procesos de espera, duelo o transformación personal. Descubre cómo mantener la fe cuando el milagro tarda. Autor: J.J. Vargas.">
+    <meta name="keywords" content="libro cristiano, fe, esperanza, resiliencia espiritual, J.J. Vargas, duelo, transformación personal, libro espiritual, esperando contra toda esperanza">
+    <meta name="author" content="J.J. Vargas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://libroesperanza.online/">
+
+    <!-- ==========================================
+         OPEN GRAPH (Facebook, WhatsApp, LinkedIn)
+         ========================================== -->
+    <meta property="og:type" content="book">
+    <meta property="og:title" content="Esperando Contra Toda Esperanza — J.J. Vargas">
+    <meta property="og:description" content="Un estudio espiritual para los que han visto el milagro pero siguen esperando. Fe, resiliencia y transformación personal.">
+    <meta property="og:url" content="https://libroesperanza.online/">
+    <meta property="og:image" content="https://libroesperanza.online/portada-libro.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Esperando Contra Toda Esperanza">
+    <meta property="book:author" content="J.J. Vargas">
+
+    <!-- ==========================================
+         TWITTER CARD
+         ========================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Esperando Contra Toda Esperanza — J.J. Vargas">
+    <meta name="twitter:description" content="Libro espiritual cristiano sobre fe, resiliencia y esperanza en tiempos de crisis.">
+    <meta name="twitter:image" content="https://libroesperanza.online/portada-libro.jpg">
+
+    <!-- ==========================================
+         SCHEMA.ORG — Book + Person (JSON-LD)
+         ========================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Esperando Contra Toda Esperanza",
+      "author": {
+        "@type": "Person",
+        "name": "J.J. Vargas"
+      },
+      "description": "Libro espiritual y cristiano sobre fe, resiliencia y transformación personal para quienes atraviesan procesos de espera, duelo o crisis.",
+      "inLanguage": "es",
+      "genre": ["Espiritualidad", "Autoayuda cristiana", "Fe", "Resiliencia"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "MindHub Dynamics"
+      },
+      "url": "https://libroesperanza.online/",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "url": "https://libroesperanza.online/"
+      }
+    }
+    </script>
+
+    <!-- ==========================================
+         GOOGLE ANALYTICS 4
+         Reemplaza G-XXXXXXXXXX con tu Measurement ID
+         ========================================== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -501,14 +571,27 @@
            SECCIÓN 5: COMUNIDAD
            ========================================= */
         .comunidad {
-            padding: 100px 0;
-            background-color: var(--accent);
+            padding: 120px 0;
+            background: linear-gradient(135deg, #1e2330 0%, #3b71d0 100%);
             color: #fff;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comunidad::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+            pointer-events: none;
         }
 
         .comunidad h2 {
             color: #fff;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
         }
 
         .comunidad .section-subtitle {
@@ -1605,13 +1688,15 @@
         <div class="nav-container">
             <a href="#" class="logo">ESPERANDO</a>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
+
                 <li><a href="#problema">El Libro</a></li>
                 <li><a href="#ofrece">Qué ofrece</a></li>
                 <li><a href="#capitulo-gratis">Capítulo Gratis</a></li>
                 <li><a href="#comunidad">Comunidad</a></li>
                 <li><a href="diplomado.html">Diplomado</a></li>
-                <li><a href="#compra" class="nav-comprar">Comprar</a></li>
+                <li><a href="donaciones.html">Donar</a></li>
+
+                <li><a href="#compra" class="nav-comprar">Comprar Libro</a></li>
             </ul>
             <div class="hamburger" id="hamburger">☰</div>
         </div>
@@ -1625,7 +1710,7 @@
                 <h2>El silencio de Dios no es ausencia de Dios</h2>
                 <p class="impacto">Un estudio para los que han visto el milagro pero siguen esperando.</p>
                 <div class="hero-actions">
-                    <a href="#compra" class="btn" style="background-color: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px rgba(30, 35, 48, 0.4);">COMPRAR LIBRO DIGITAL POR $120</a>
+                    <a href="https://buy.stripe.com/bJebJ3dwy8Xga3xeQh77O03" class="btn" style="background-color: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px rgba(30, 35, 48, 0.4);">COMPRAR LIBRO DIGITAL POR $199</a>
                     <a href="#capitulo-gratis" class="btn" style="background-color: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px rgba(30, 35, 48, 0.4);">QUIERO EL CAPÍTULO GRATIS</a>
                     <a href="diplomado.html" class="btn" style="background-color: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 15px rgba(30, 35, 48, 0.4);">QUIERO INSCRIBIRME AL DIPLOMADO</a>
                 </div>
@@ -1697,8 +1782,8 @@
             <p class="section-subtitle fade-in-section" style="margin-bottom: 20px;">Sumérgete en conversaciones reales
                 en nuestro podcast oficial.</p>
 
-            <div class="video-wrapper fade-in-section" style="max-width: 800px;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/HWxSyOkqRjQ"
+            <div class="video-wrapper" style="max-width: 800px;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/HWxSyOkqRjQ?si=s_8uSMcgzo8ZuVEi"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1711,8 +1796,7 @@
         <div class="container">
             <div class="lead-magnet-container fade-in-section">
                 <div class="lm-image">
-                    <img src="PORTADA.jpg" alt="Capítulo Gratis">
-                </div>
+                    <img src="PORTADA.jpg" alt="Portada del libro Esperando contra toda Esperanza" class="fade-in-section">              </div>
                 <div class="lm-content">
                     <h2 class="section-title" style="margin-bottom: 0.5rem;">PRUEBA ANTES DE COMPRAR</h2>
                     <p class="section-subtitle" style="margin-left: 0; color: var(--primary);">Descarga gratis el primer
@@ -1723,11 +1807,13 @@
                         <!-- INSTRUCCIÓN DE INTEGRACIÓN -->
                         <!-- [INSERTO AQUÍ EL CÓDIGO EMBED DE MI HERRAMIENTA DE EMAIL MARKETING COMO MAILCHIMP O GOOGLE FORMS] -->
 
-                        <!-- Formulario de demostración UI (Reemplazar en prod) -->
                         <form class="demo-form"
-                            onsubmit="event.preventDefault(); window.open('https://drive.google.com/file/d/1sPrXF-PuQFuepd_RmapO8ooiIsEgDF_6/view?usp=sharing', '_blank');">
-                            <input type="text" placeholder="Tu Nombre" required>
-                            <input type="email" placeholder="Tu Correo Electrónico" required>
+                            onsubmit="event.preventDefault(); window.open('capitulo_gratis_01.pdf', '_blank');">
+                            <input type="text" name="nombre" placeholder="Tu Nombre Completo" required>
+                            <input type="email" name="correo" placeholder="Tu Correo Electrónico" required>
+                            <input type="tel" name="telefono" placeholder="Tu Número de WhatsApp (con código de país)" required
+                                pattern="[\+]?[0-9\s\-\(\)]{8,20}"
+                                title="Ej: +52 442 794 2009">
                             <button type="submit" class="btn btn-primary">DESCARGAR CAPÍTULO GRATIS</button>
                         </form>
                     </div>
@@ -1742,9 +1828,9 @@
         <div class="container text-center fade-in-section">
             <h2 class="section-title" style="color:#fff;">No estás solo. La Resistencia del Asedio te espera.</h2>
             <p class="section-subtitle" style="margin: 0 auto 40px; max-width: 700px; color:#fff;">Únete a nuestra
-                comunidad de WhatsApp y camina con otros que también están esperando.</p>
-            <a href="https://wa.me/524427942009?text=Hola,%20quisiera%20unirme%20a%20la%20comunidad%20de%20Esperando%20contra%20toda%20esperanza"
-                target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">UNIRME A LA COMUNIDAD MUNDIAL</a>
+                comunidad de Telegram y camina con otros que también están esperando.</p>
+            <a href="https://t.me/+F-HsFaqcCxgwYmYx"
+                target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="background-color: #0088cc;">UNIRME A LA COMUNIDAD MUNDIAL</a>
         </div>
     </section>
 
@@ -1755,19 +1841,20 @@
             </h2>
 
             <div class="oferta-caja fade-in-section">
-                <div class="precio">$120 MXN</div>
+                <div class="precio">$199 MXN</div>
                 <div class="precio-sub">Edición Exclusivamente Digital (PDF + ePub)</div>
 
                 <div class="bonos">
                     <ul>
-                        <li>Libro Digital "Esperando contra toda esperanza"</li>
-                        <li><strong>INCLUYE ACCESO AL ONBOARDING EN VIVO</strong></li>
-                        <li>Entrega inmediata por correo electrónico</li>
-                        <li>Lectura en cualquier dispositivo (Laptop, Tablet, Celular)</li>
+                        <li>✅ Libro Digital "Esperando contra toda esperanza"</li>
+                        <li>✅ Aplicación Móvil de Acompañamiento (APK)</li>
+                        <li>✅ <strong>INCLUYE ACCESO AL ONBOARDING EN VIVO</strong></li>
+                        <li>✅ <strong>Bono:</strong> Descuento exclusivo para el Diplomado UNICEUR</li>
+                        <li>🚀 Entrega inmediata por correo electrónico</li>
                     </ul>
                 </div>
 
-                <a href="https://buy.stripe.com/8x2fZjcsu5L4ejNgYp77O01"
+                <a href="https://buy.stripe.com/bJebJ3dwy8Xga3xeQh77O03"
                     class="btn btn-primary btn-compra-gigante">COMPRAR AHORA (OFERTA LIMITADA ESPECIAL)</a>
 
                 <div class="trust-badges">
@@ -1788,12 +1875,12 @@
         <div class="container">
             <a href="#" class="footer-logo">ESPERANDO</a>
             <ul class="footer-links">
-                <li><a href="#inicio">Inicio</a></li>
+
                 <li><a href="#capitulo-gratis">Capítulo Gratis</a></li>
                 <li><a href="#comunidad">Comunidad</a></li>
                 <li><a href="#">Aviso de Privacidad</a></li>
                 <li><a href="#">Términos y Condiciones</a></li>
-                <li><a href="sistema/login.html">Acceso al Sistema</a></li>
+
             </ul>
 
             <div class="footer-bottom">
@@ -1869,8 +1956,51 @@
                 appearOnScroll.observe(fader);
             });
 
-            // 5. Integración Básica de Stripe Checkout (Removida por Payment Links)
-            // El botón de compra ahora redirige directamente al enlace de pago de Stripe.
+            // 5. Manejo del Formulario Lead Magnet (Capítulo Gratis)
+            window.handleFormSubmit = async function(event) {
+                event.preventDefault();
+                const form = event.target;
+                const button = form.querySelector('button');
+                const originalText = button.innerText;
+                
+                button.disabled = true;
+                button.innerText = 'Enviando...';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        button.innerText = '✅ ¡Enviado!';
+                        button.style.backgroundColor = '#10B981';
+                        
+                        const formContainer = form.parentElement;
+                        form.style.display = 'none';
+                        const downloadBtn = document.createElement('div');
+                        downloadBtn.innerHTML = `
+                            <div style="background: rgba(16, 185, 129, 0.1); border: 2px dashed #10B981; padding: 20px; border-radius: 12px; margin-top: 20px; color: white;">
+                                <h3 style="color: #10B981; margin-bottom: 15px;">¡Registro Exitoso!</h3>
+                                <p style="margin-bottom: 20px;">Haz clic en el botón de abajo para descargar tu capítulo:</p>
+                                <a href="https://drive.google.com/file/d/1sPrXF-PuQFuepd_RmapO8ooiIsEgDF_6/view?usp=sharing" 
+                                   target="_blank" 
+                                   class="btn btn-primary" 
+                                   style="background-color: #10B981; color: white;">⬇️ DESCARGAR CAPÍTULO AHORA</a>
+                                <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">También te hemos enviado una copia a tu correo.</p>
+                            </div>
+                        `;
+                        formContainer.appendChild(downloadBtn);
+                    } else {
+                        throw new Error();
+                    }
+                } catch (error) {
+                    alert('Hubo un error al enviar tus datos. Por favor intenta de nuevo o contáctanos por WhatsApp.');
+                    button.disabled = false;
+                    button.innerText = originalText;
+                }
+            };
         });
     </script>
 
@@ -1942,7 +2072,7 @@
                 const msgDiv = document.createElement('div');
                 msgDiv.classList.add('chat-msg', sender);
                 // Si contiene enlace (Drive), hacerlo clickeable
-                const formattedText = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color:inherit; text-decoration:underline; font-weight:bold;">$1</a>');
+                const formattedText = text.includes('<a') ? text : text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color:inherit; text-decoration:underline; font-weight:bold;">$1</a>');
                 msgDiv.innerHTML = formattedText;
                 chatBody.appendChild(msgDiv);
                 chatBody.scrollTop = chatBody.scrollHeight;
@@ -1950,14 +2080,14 @@
 
             function processBotResponse(userMsg) {
                 const msg = userMsg.toLowerCase();
-                let response = "Entiendo perfectamente lo que me dices. Este libro fue escrito exactamente para acompañar procesos que parecen no tener respuesta. El formato digital cuesta solo $120 MXN e incluye acceso a un onboarding especial. ¿Sientes que recibir herramientas prácticas te ayudaría a sobrellevar mejor este momento de espera?";
+                let response = "Entiendo perfectamente lo que me dices. Este libro fue escrito exactamente para acompañar procesos que parecen no tener respuesta. El combo de Libro + Aplicación cuesta solo $199 MXN e incluye acceso a un onboarding especial. ¿Sientes que recibir herramientas prácticas te ayudaría a sobrellevar mejor este momento de espera?";
 
                 if (msg.includes('prueba') || msg.includes('test')) {
                     response = "Hola, gracias por la prueba. ¡El bot está activo y listo para conectar con tu audiencia! ¿Deseas hacer alguna otra prueba?";
                 } else if (msg.includes('diplomado') || msg.includes('curso') || msg.includes('clases') || msg.includes('programa')) {
                     response = "El **Diplomado en Inteligencia Emocional para el Emprendimiento** es un viaje de 7 semanas diseñado para darte una ruta clara de acción e ingreso. Tiene un costo de $7,500 MXN e incluye sesiones en vivo, constancia con valor curricular y acceso a la comunidad. ¿Te gustaría conocer el temario completo?<br><br>👉 <a href='#diplomado'>Haz clic aquí para ver los temas y reservar tu lugar</a>";
                 } else if (msg.includes('costo') || msg.includes('precio') || msg.includes('cuesta') || msg.includes('comprar')) {
-                    response = "El costo de no saber lidiar con la espera prolongada suele ser muy alto emocionalmente. Por eso hicimos esta guía súper accesible: El libro digital cuesta solo **$120 MXN**, y te incluye acceso directo a un onboarding en vivo con el autor. <br><br>👉 <a href='https://buy.stripe.com/8x2fZjcsu5L4ejNgYp77O01' target='_blank'>Haz clic aquí para COMPRAR AHORA (OFERTA LIMITADA ESPECIAL)</a>";
+                    response = "El costo de no saber lidiar con la espera prolongada suele ser muy alto emocionalmente. Por eso hicimos esta guía súper accesible: El **Combo de Libro digital + App Móvil** cuesta solo **$199 MXN**, y te incluye acceso directo a un onboarding en vivo con el autor. <br><br>👉 <a href='https://buy.stripe.com/bJebJ3dwy8Xga3xeQh77O03' target='_blank'>Haz clic aquí para COMPRAR EL COMBO AHORA</a>";
                 } else if (msg.includes('fisico') || msg.includes('impreso') || msg.includes('envio')) {
                     response = "Creamos esta edición en **formato 100% digital** para que no tuvieras que esperar un minuto más por el envío; se entrega en tu correo apenas terminas el pago para que lo leas hoy mismo desde tu celular o computadora. Cuando atraviesas un desierto, ¿no crees que lo que más necesitas es empezar a ver respuestas inmediatas?";
                 } else if (msg.includes('desempleado') || msg.includes('crisis') || msg.includes('triste') || msg.includes('no sé') || msg.includes('esperando') || msg.includes('para mí') || msg.includes('depresión')) {
@@ -2010,19 +2140,6 @@
     <!-- Botón Flotante WhatsApp Premium -->
     <a href="https://wa.me/524427942009?text=Hola,%20me%20interesa%20el%20libro%20Esperando%20contra%20toda%20esperanza"
         class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Contáctanos por WhatsApp">
-        <svg viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.662-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0     <!-- SECCIÓN: DIPLOMADO (Migrado a diplomado.html) -->
-    <div id="sec-diplomado" class="spa-section">
-        <div class="container" style="text-align: center; padding: 15vh 0;">
-            <h2 style="color: #fff; margin-bottom: 20px;">La información del Diplomado se ha actualizado</h2>
-            <p style="color: #cbd5e1; margin-bottom: 30px;">Hemos creado una experiencia dedicada y mucho más completa para ti.</p>
-            <a href="diplomado.html" class="btn" style="background-color: var(--primary); color: #fff; border: 1px solid var(--primary); padding: 15px 30px; border-radius: 8px; text-decoration: none;">Ver el nuevo Diplomado</a>
-        </div>
-    </div> <p style="margin-bottom: 30px; opacity: 0.8; color: #000000; font-weight: 500;">Potenciando el espíritu emprendedor con inteligencia emocional estratégica.</p>
-      <p style="font-size: 12px; opacity: 0.7; color: #000000;">© 2026 · Diplomado Inteligencia Emocional para el Emprendimiento · Todos los derechos reservados · MindHub Dynamics</p>
-    </div>
-  </footer>
-
     </div>
 
     <!-- SECCIÓN: GRACIAS (ÉXITO) -->
@@ -2040,23 +2157,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN: LOGIN ADMIN -->
-    <div id="sec-login" class="spa-section">
-        <div style="background: #13111f; border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 16px; width: 100%; max-width: 400px; text-align: center; margin: auto;">
-            <h2 style="color: #fff; margin-bottom: 10px;">Panel de Control</h2>
-            <p style="color: #5c5880; margin-bottom: 30px;">Acceso exclusivo CAMP</p>
-            <form id="spaLoginForm" style="display: flex; flex-direction: column; gap: 15px;">
-                <input type="text" id="spa_username" placeholder="Usuario" style="padding: 12px; border-radius: 8px; border: 1px solid #333; background: #1a1730; color: #fff;">
-                <input type="password" id="spa_password" placeholder="Contraseña" style="padding: 12px; border-radius: 8px; border: 1px solid #333; background: #1a1730; color: #fff;">
-                <button type="submit" class="btn btn-primary" style="padding: 14px; border-radius: 8px; font-weight: bold;">Entrar al Sistema</button>
-            </form>
-        </div>
-    </div>
 
-    <!-- SECCIÓN: DASHBOARD (CARGA AJAX) -->
-    <div id="sec-dashboard" class="spa-section">
-        <iframe id="dashboard-iframe" src="about:blank" style="width: 100%; height: 100vh; border: none;"></iframe>
-    </div>
 
     <!-- BOTONES FLOTANTES GLOBALES -->
     <!-- (WhatsApp y Chatbot se mantienen fuera de las secciones para estar siempre visibles o se pueden ocultar via JS) -->
