@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Manual de supervivencia | Esperando contra toda esperanza</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #0A0C0E;
+            color: #E5E0D8;
+            line-height: 1.4;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #12171C;
+            border-radius: 0;
+            padding: 2rem 1.5rem;
+            box-shadow: none;
+            border: none;
+            border-left: 6px solid #C47A5E;
+        }
+        .badge {
+            background: #C47A5E20;
+            border: 1px solid #C47A5E;
+            color: #E8C39E;
+            display: inline-block;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #FFF5EA;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .highlight {
+            color: #E8A56E;
+            border-bottom: 2px solid #E8A56E;
+        }
+        .dolor-box {
+            background: #1E262C;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #C47A5E;
+        }
+        .dolor-box p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: #CCC6BC;
+        }
+        .frase-impacto {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #E8A56E;
+            margin: 1rem 0;
+        }
+        .btn-wa {
+            display: block;
+            background: #25D366;
+            color: #0A0C0E;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            padding: 1rem;
+            border-radius: 50px;
+            margin: 2rem 0 1rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 14px rgba(37,211,102,0.4);
+        }
+        .btn-wa:hover {
+            background: #20b859;
+            transform: scale(1.02);
+        }
+        .btn-secundario {
+            display: block;
+            background: transparent;
+            border: 1.5px solid #C47A5E;
+            color: #E8C39E;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.7rem;
+            border-radius: 50px;
+            margin: 0.5rem 0;
+            transition: 0.2s;
+        }
+        .btn-secundario:hover {
+            background: #C47A5E;
+            color: #12171C;
+        }
+        .urgente {
+            background: #E8A56E20;
+            border: 1px dashed #E8A56E;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            color: #E8C39E;
+        }
+        .countdown-container {
+            text-align: center;
+            background: #1A0F0A;
+            border: 1px dashed #C47A5E;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            color: #E8A56E;
+        }
+        .countdown-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-family: monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFF5EA;
+        }
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .countdown-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            color: #C47A5E;
+            text-transform: uppercase;
+        }
+        .small-note {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #8B7A6B;
+            margin-top: 1rem;
+        }
+        hr {
+            margin: 1.2rem 0;
+            border: none;
+            height: 1px;
+            background: #2A2E35;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="badge">⚠️ NO ES AUTOAYUDA · ES UN MANUAL DE SUPERVIVENCIA</div>
+
+    <h1>Has intentado <span class="highlight">todo</span>.<br>Y nada cambia.</h1>
+
+    <div class="dolor-box">
+        <p>💔 Perdiste el empleo. Las ganas se fueron. El dinero no alcanza.</p>
+        <p>😞 Has orado, has buscado, has intentado mantener la fe… pero el silencio pesa más.</p>
+        <p>🌀 Te sientes atrapado, sin rumbo, sin claridad.</p>
+        <p class="frase-impacto">➡️ No estás roto. Estás en un asedio.</p>
+    </div>
+
+    <div class="urgente">
+        🔥 ESTE ES TU PUNTO DE INFLEXIÓN 🔥
+    </div>
+
+    <p style="font-size: 0.9rem;"><strong>¿Qué pasaría si en lugar de otro consejo vacío, tuvieras un manual práctico para salir del pozo?</strong></p>
+    <p>📖 <strong>“Esperando contra toda esperanza”</strong> no es autoayuda barata. Es un <strong>manual de supervivencia</strong> escrito desde la trinchera real de quien perdió su trabajo después de 20 años. Basado en la historia de Samaria (2 Reyes 6‑7), te da <strong>pasos concretos, ejercicios y una ruta para no rendirte</strong>.</p>
+
+    <div class="frase-impacto">
+        🔹 Lo que otros no te dicen: el asedio tiene salida. Pero tienes que moverte.
+    </div>
+
+    <a href="https://wa.me/message/XXWNHQFPCXPEA1" class="btn-wa" target="_blank">
+        💬 HABLAR AHORA CON SOFÍA (URGENTE)
+    </a>
+
+    <div class="countdown-container">
+        <div class="countdown-title">¿Quieres seguir esperando?</div>
+        <div class="countdown-timer" id="countdown">
+            <div class="countdown-item">
+                <span id="hours">07</span>
+                <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-item">
+                <span style="color:#C47A5E;">:</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">00</span>
+                <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-item">
+                <span style="color:#C47A5E;">:</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">00</span>
+                <span class="countdown-label">Seg</span>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://buy.stripe.com/bJebJ3dwy8Xga3xeQh77O03" class="btn-secundario" target="_blank">
+        🔥 YA LO SÉ → COMPRAR LIBRO + APP ($199)
+    </a>
+
+    <div class="small-note">
+        ✅ Primer capítulo gratis sin compromiso. Solo pídelo a Sofía.<br>
+        ✅ Acompañamiento real. Sin presiones. Decenas de personas ya están cruzando la puerta.
+    </div>
+
+    <hr>
+    <div style="font-size: 0.7rem; text-align: center; color: #8B7A6B;">
+        Basado en 2 Reyes 6‑7 · MindHubDynamics · #NoEsAutoayuda
+    </div>
+</div>
+
+<script>
+    const COUNTDOWN_TIME = 7 * 60 * 60 * 1000; // 7 hours
+    
+    function startCountdown() {
+        let endTime = localStorage.getItem('countdownEndTime_var01');
+        
+        if (!endTime || new Date().getTime() > endTime) {
+            endTime = new Date().getTime() + COUNTDOWN_TIME;
+            localStorage.setItem('countdownEndTime_var01', endTime);
+        }
+        
+        function updateTimer() {
+            const now = new Date().getTime();
+            let distance = endTime - now;
+            
+            if (distance < 0) {
+                endTime = now + COUNTDOWN_TIME;
+                localStorage.setItem('countdownEndTime_var01', endTime);
+                distance = COUNTDOWN_TIME;
+            }
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    }
+    
+    startCountdown();
+</script>
+</body>
+</html>
