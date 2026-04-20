@@ -91,23 +91,30 @@
             background: #20b859;
             transform: scale(1.02);
         }
-        .btn-secundario {
+        .btn-urgencia {
             display: block;
-            background: transparent;
-            border: 1.5px solid #C47A5E;
-            color: #E8C39E;
+            background: #FFB800;
+            border: none;
+            color: #0A0C0E;
             text-align: center;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 0.7rem;
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 0.9rem;
             border-radius: 50px;
             margin: 0.5rem 0;
             transition: 0.2s;
+            box-shadow: 0 4px 14px rgba(255, 184, 0, 0.4);
+            animation: pulse-yellow 2s infinite;
         }
-        .btn-secundario:hover {
-            background: #C47A5E;
-            color: #12171C;
+        .btn-urgencia:hover {
+            background: #E5A600;
+            transform: scale(1.02);
+        }
+        @keyframes pulse-yellow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 184, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 184, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 184, 0, 0); }
         }
         .urgente {
             background: #E8A56E20;
@@ -230,8 +237,8 @@
         </div>
     </div>
 
-    <a href="https://buy.stripe.com/bJebJ3dwy8Xga3xeQh77O03" class="btn-secundario" target="_blank">
-        🔥 YA LO SÉ → COMPRAR LIBRO + APP ($199)
+    <a href="https://buy.stripe.com/bJebJ3dwy8Xga3xeQh77O03" class="btn-urgencia" target="_blank">
+        ⚡ YA LO SÉ → COMPRAR LIBRO + APP ($199)
     </a>
 
     <div class="small-note">
