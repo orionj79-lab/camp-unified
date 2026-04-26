@@ -1678,6 +1678,24 @@
     }
   
 </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1715289706013797');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1715289706013797&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -1775,18 +1793,54 @@
         </div>
     </section>
 
-    <!-- SECCIÓN PODCAST -->
-    <section id="podcast" style="padding: 80px 0; background-color: var(--bg-color);">
+    <!-- SECCIÓN CONTENIDO YOUTUBE -->
+    <section id="youtube-content" style="padding: 100px 0; background-color: var(--primary); color: #fff;">
         <div class="container text-center">
-            <h2 class="section-title fade-in-section">Conoce las historias detrás del asedio</h2>
-            <p class="section-subtitle fade-in-section" style="margin-bottom: 20px;">Sumérgete en conversaciones reales
-                en nuestro podcast oficial.</p>
+            <h2 class="section-title fade-in-section" style="color: #fff;">Contenido y Reflexiones en YouTube</h2>
+            <p class="section-subtitle fade-in-section" style="color: rgba(255,255,255,0.8); margin-bottom: 50px;">
+                Sumérgete en conversaciones reales, enseñanzas y material complementario directamente desde nuestro canal oficial.
+            </p>
 
-            <div class="video-wrapper" style="max-width: 800px;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/HWxSyOkqRjQ?si=s_8uSMcgzo8ZuVEi"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-gallery fade-in-section" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: start;">
+                <!-- Video Principal / Más Reciente -->
+                <div class="video-main" style="grid-column: 1 / -1; margin-bottom: 20px;">
+                    <div class="video-wrapper" style="max-width: 900px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.5); border: 2px solid var(--secondary);">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/HWxSyOkqRjQ?si=s_8uSMcgzo8ZuVEi" title="Video Principal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <h3 style="margin-top: 20px; font-size: 1.5rem; color: #fff;">Conoce las historias detrás del asedio (Podcast)</h3>
+                </div>
+
+                <!-- Videos Secundarios (Playlist) -->
+                <div class="video-item" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);">
+                    <div class="video-wrapper" style="margin: 0 0 15px 0; padding-bottom: 56.25%; border: none; box-shadow: none;">
+                        <iframe src="https://www.youtube.com/embed/ID_VIDEO_1" title="Video Recomendado 1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 10px;">Reflexión: El silencio de Dios</h4>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0;">Un breve análisis sobre cómo manejar la pausa divina en medio de la crisis.</p>
+                </div>
+
+                <div class="video-item" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);">
+                    <div class="video-wrapper" style="margin: 0 0 15px 0; padding-bottom: 56.25%; border: none; box-shadow: none;">
+                        <iframe src="https://www.youtube.com/embed/ID_VIDEO_2" title="Video Recomendado 2" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 10px;">Entrevista Exclusiva</h4>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0;">Profundizando en los temas del libro junto a invitados especiales.</p>
+                </div>
+
+                <div class="video-item" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);">
+                    <div class="video-wrapper" style="margin: 0 0 15px 0; padding-bottom: 56.25%; border: none; box-shadow: none;">
+                        <iframe src="https://www.youtube.com/embed/ID_VIDEO_3" title="Video Recomendado 3" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 10px;">Consejos Prácticos</h4>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0;">3 cosas que debes recordar cuando la espera se prolonga demasiado.</p>
+                </div>
+            </div>
+
+            <div class="fade-in-section" style="margin-top: 60px;">
+                <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: #FF0000; border-color: #FF0000; padding: 16px 35px; font-size: 1.1rem;">
+                    <svg style="width: 24px; height: 24px; margin-right: 10px; fill: currentColor;" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    SUSCRIBIRSE AL CANAL DE YOUTUBE
+                </a>
             </div>
         </div>
     </section>
@@ -2138,7 +2192,7 @@
     </script>
 
     <!-- Botón Flotante WhatsApp Premium -->
-    <a href="https://wa.me/524427942009?text=Hola,%20me%20interesa%20el%20libro%20Esperando%20contra%20toda%20esperanza"
+    <a href="https://wa.me/5214447003389?text=Hola,%20me%20interesa%20el%20libro%20Esperando%20contra%20toda%20esperanza"
         class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Contáctanos por WhatsApp">
     </div>
 

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Navegación en Crisis | Protocolo de Resistencia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Lexend:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #001B3D;
+            --bg-secondary: #001229;
+            --accent-gold: #FFD700;
+            --accent-gold-dark: #D4AF37;
+            --accent-cyan: #00FFFF;
+            --accent-cyan-glow: rgba(0, 255, 255, 0.4);
+            --text-light: #F0F4F8;
+            --text-muted: #A0B0C0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(0, 255, 255, 0.05), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(255, 215, 0, 0.05), transparent 25%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            background: linear-gradient(to bottom, transparent, var(--bg-secondary));
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--accent-gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero .subheadline {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-cyan), #00b3b3);
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px var(--accent-cyan-glow);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px var(--accent-cyan-glow);
+            background: #000;
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+        }
+
+        .cta-gold {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-gold:hover {
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+            background: #000;
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            position: relative;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 15px var(--accent-cyan);
+        }
+
+        .glass-panel p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .glass-panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-cyan {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* Stack Section */
+        .stack-section {
+            padding: 8rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .stack-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .stack-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-number {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(255, 215, 0, 0.1);
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .stack-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stack-card h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .stack-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Offer Section */
+        .offer-section {
+            padding: 6rem 0;
+            background: linear-gradient(to top, var(--bg-secondary), transparent);
+            text-align: center;
+        }
+
+        .offer-box {
+            background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.1), transparent 70%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 24px;
+            padding: 4rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .price-strike {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .price-real {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin: 1rem 0;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .price-real span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            vertical-align: super;
+        }
+
+        .guarantee {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .guarantee strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Helper structure for GHL */
+        .ghl-mockup-note {
+            text-align: center;
+            padding: 2rem;
+            background: #000;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 4rem;
+        }
+
+        /* Urgency & Compass CSS */
+        .urgency-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            background: rgba(0, 27, 61, 0.8);
+            border: 1px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+            padding: 1.5rem 2.5rem;
+            border-radius: 20px;
+            margin: 0 auto 3rem auto;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .countdown-title {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-timer {
+            font-family: monospace;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+            display: flex;
+            gap: 0.5rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .countdown-timer .colon {
+            color: var(--accent-cyan);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .compass-icon svg {
+            filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+        }
+
+        .compass-needle {
+            transform-origin: 100px 100px;
+            animation: compass-action 4s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        }
+
+        @keyframes compass-action {
+            0% { transform: rotate(0deg); }
+            15% { transform: rotate(45deg); }
+            25% { transform: rotate(-10deg); }
+            45% { transform: rotate(80deg); }
+            65% { transform: rotate(-25deg); }
+            85% { transform: rotate(15deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .glass-panel { padding: 2rem; }
+            .offer-box { padding: 2rem; }
+            .price-real { font-size: 3.5rem; }
+            
+            .urgency-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            .countdown-wrapper {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>¿Hiciste todo bien y aun así el resultado no llega?<br><span>Bienvenido al Asedio.</span></h1>
+            <p class="subheadline">Deja de esperar de forma pasiva. Accede al sistema de <strong>Ingeniería Emocional</strong> diseñado para profesionales, docentes y emprendedores que necesitan recuperar el control en medio de la incertidumbre laboral y personal.</p>
+            <a href="#checkout" class="cta-button">Sí, quiero el Protocolo de Resistencia</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="glass-panel">
+                <p>El desempleo, la pérdida de salud o el estancamiento de un proyecto no son solo crisis económicas; <span class="highlight-cyan">son crisis de sistema.</span></p>
+                <p>Los consejos motivacionales vacíos no sirven aquí.</p>
+                <p>Necesitas un <strong>marco de trabajo (Framework)</strong> que funcione cuando la lógica parece fallar y todo a tu alrededor te exige una respuesta que aún no tienes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Section -->
+    <section class="stack-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>El "Pack de Resistencia"</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Todo lo que incluye The Stack para desmantelar tu asedio.</p>
+            </div>
+            
+            <div class="stack-grid">
+                <!-- Item 1 -->
+                <div class="stack-card">
+                    <span class="card-number">01</span>
+                    <h3>El Manual Maestro</h3>
+                    <p>Libro digital <em>"Esperando contra toda esperanza"</em>. El mapa estratégico para entender la estructura de la espera. <br><br><small style="color:var(--accent-gold)">(Formato PDF + ePub)</small></p>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="stack-card">
+                    <span class="card-number">02</span>
+                    <h3>App de Acompañamiento</h3>
+                    <p>Acceso a nuestra plataforma móvil <strong>MindHub</strong> para tracking de progreso personal, registro y ejercicios diarios en la palma de tu mano.</p>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="stack-card">
+                    <span class="card-number">03</span>
+                    <h3>Webinars de Aprendizaje</h3>
+                    <p>Sesiones en vivo sobre <strong>neuroeducación y gestión de caos</strong>, diseñadas específicamente para reinsertarte con ventaja en el mercado actual.</p>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="stack-card">
+                    <span class="card-number">04</span>
+                    <h3>Comunidad Mundial</h3>
+                    <p>Acceso al grupo privado y exclusivo de WhatsApp/SaaS para <strong>networking de alto nivel</strong> con otros profesionales en el mismo proceso de resistencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer-section" id="checkout">
+        <div class="container">
+            
+            <div class="urgency-container">
+                <div class="compass-icon">
+                    <svg viewBox="0 0 200 200" width="100" height="100">
+                        <defs>
+                            <radialGradient id="antique-ring" cx="50%" cy="50%" r="50%">
+                                <stop offset="85%" stop-color="#2A2010" />
+                                <stop offset="95%" stop-color="#D4AF37" />
+                                <stop offset="100%" stop-color="#8B6914" />
+                            </radialGradient>
+                            <radialGradient id="compass-face" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#2c2415" />
+                                <stop offset="60%" stop-color="#141108" />
+                                <stop offset="100%" stop-color="#000000" />
+                            </radialGradient>
+                            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                              <feDropShadow dx="3" dy="5" stdDeviation="3" flood-opacity="0.6"/>
+                            </filter>
+                        </defs>
+                        <!-- Outer antique casing -->
+                        <circle cx="100" cy="100" r="95" fill="url(#antique-ring)" stroke="#0A0A0A" stroke-width="2"/>
+                        <circle cx="100" cy="100" r="85" fill="url(#compass-face)" stroke="#D4AF37" stroke-width="3"/>
+                        
+                        <!-- Outer degree ticks -->
+                        <g stroke="#D4AF37" stroke-width="1.5" opacity="0.6">
+                            <circle cx="100" cy="100" r="80" fill="none" stroke-dasharray="2 4"/>
+                            <circle cx="100" cy="100" r="75" fill="none" stroke-dasharray="1 15" stroke-width="3"/>
+                        </g>
+
+                        <!-- Compass Rose (Background Star) -->
+                        <g opacity="0.5">
+                            <g stroke="#000" stroke-width="0.5" transform="rotate(45 100 100)">
+                                <!-- Secondary Star -->
+                                <polygon points="95,100 100,50 100,100" fill="#6a4f0f"/>
+                                <polygon points="105,100 100,50 100,100" fill="#b08d27"/>
+                                <polygon points="95,100 100,150 100,100" fill="#b08d27"/>
+                                <polygon points="105,100 100,150 100,100" fill="#6a4f0f"/>
+                                <polygon points="100,95 150,100 100,100" fill="#6a4f0f"/>
+                                <polygon points="100,105 150,100 100,100" fill="#b08d27"/>
+                                <polygon points="100,95 50,100 100,100" fill="#b08d27"/>
+                                <polygon points="100,105 50,100 100,100" fill="#6a4f0f"/>
+                            </g>
+                            <g stroke="#000" stroke-width="0.5">
+                                <!-- Primary Star -->
+                                <polygon points="92,100 100,35 100,100" fill="#8B6914"/>
+                                <polygon points="108,100 100,35 100,100" fill="#D4AF37"/>
+                                <polygon points="92,100 100,165 100,100" fill="#D4AF37"/>
+                                <polygon points="108,100 100,165 100,100" fill="#8B6914"/>
+                                <polygon points="100,92 165,100 100,100" fill="#8B6914"/>
+                                <polygon points="100,108 165,100 100,100" fill="#D4AF37"/>
+                                <polygon points="100,92 35,100 100,100" fill="#D4AF37"/>
+                                <polygon points="100,108 35,100 100,100" fill="#8B6914"/>
+                            </g>
+                        </g>
+
+                        <!-- Cardinal Directions Text -->
+                        <text x="100" y="28" fill="#D4AF37" font-size="18" text-anchor="middle" font-family="serif" font-weight="bold">N</text>
+                        <text x="100" y="184" fill="#D4AF37" font-size="18" text-anchor="middle" font-family="serif" font-weight="bold">S</text>
+                        <text x="178" y="106" fill="#D4AF37" font-size="18" text-anchor="middle" font-family="serif" font-weight="bold">E</text>
+                        <text x="22" y="106" fill="#D4AF37" font-size="18" text-anchor="middle" font-family="serif" font-weight="bold">O</text>
+
+                        <!-- Animated Antique Needle -->
+                        <g class="compass-needle" filter="url(#shadow)">
+                            <!-- North Needle (Red) -->
+                            <polygon points="92,100 100,15 100,100" fill="#bd1b2a"/> 
+                            <polygon points="108,100 100,15 100,100" fill="#FF4444"/> 
+                            <!-- South Needle (Brass) -->
+                            <polygon points="92,100 100,185 100,100" fill="#e8c972"/> 
+                            <polygon points="108,100 100,185 100,100" fill="#b08d27"/> 
+                            
+                            <!-- Center Pin -->
+                            <circle cx="100" cy="100" r="14" fill="#111" stroke="#D4AF37" stroke-width="3"/>
+                            <circle cx="100" cy="100" r="4" fill="#E63946"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="countdown-wrapper">
+                    <div class="countdown-title">TIEMPO PARA TOMAR ACCIÓN:</div>
+                    <div class="countdown-timer">
+                        <span id="min">12</span><span class="colon">:</span><span id="sec">00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-box">
+                <div class="price-strike">Valor Real: $1,250 MXN</div>
+                <div class="price-real"><span>$</span>199<span>MXN</span></div>
+                
+                <!-- Enlace a Stripe -->
+                <a href="https://buy.stripe.com/bJebJ3dwy8Xga3xeQh77O03" target="_blank" class="cta-button cta-gold" style="margin-top: 1rem; width: 100%; max-width: 400px; display: inline-block;">
+                    Desbloquear Sistema Ahora
+                </a>
+                
+                <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                    <a href="https://t.me/" target="_blank" style="background-color: #0088cc; color: #fff; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; width: 100%; max-width: 400px;">
+                        ✈️ Unirse a Comunidad de Telegram
+                    </a>
+                    <a href="https://wa.me/message/XXWNHQFPCXPEA1" target="_blank" style="background-color: #25D366; color: #0A0C0E; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; width: 100%; max-width: 400px;">
+                        💬 Contactar por WhatsApp (Soporte)
+                    </a>
+                </div>
+                
+                <div class="guarantee">
+                    <strong>🛡️ Garantía Absoluta sin Riesgo</strong>
+                    "Si el primer capítulo y la primera sesión de aprendizaje acelerado no cambian tu perspectiva sobre tu crisis actual, te devolvemos tu inversión. Sin preguntas."
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Timer Script -->
+    <script>
+        const COUNTDOWN_TIME = 12 * 60 * 1000;
+        
+        function start12MinTimer() {
+            let endTime = localStorage.getItem('countdown12M_var02');
+            
+            if (!endTime || new Date().getTime() > endTime) {
+                endTime = new Date().getTime() + COUNTDOWN_TIME;
+                localStorage.setItem('countdown12M_var02', endTime);
+            }
+            
+            function updateTimer() {
+                const now = new Date().getTime();
+                let distance = endTime - now;
+                
+                if (distance < 0) {
+                    endTime = now + COUNTDOWN_TIME;
+                    localStorage.setItem('countdown12M_var02', endTime);
+                    distance = COUNTDOWN_TIME;
+                }
+                
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById("min").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("sec").innerText = seconds.toString().padStart(2, '0');
+            }
+            
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        }
+        
+        start12MinTimer();
+    </script>
+</body>
+</html>
